@@ -11,10 +11,10 @@ package Interaces;
  */
 public class JFrameJugador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFrameJugador
-     */
-    public JFrameJugador() {
+    JFrameLogin login;
+    
+    public JFrameJugador(JFrameLogin l) {
+        login = l;
         initComponents();
     }
 
@@ -28,7 +28,6 @@ public class JFrameJugador extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonReserSede = new javax.swing.JButton();
-        jButtonIntrRes = new javax.swing.JButton();
         jButtonAsignResp = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
         jLabelUsuario = new javax.swing.JLabel();
@@ -39,8 +38,6 @@ public class JFrameJugador extends javax.swing.JFrame {
 
         jButtonReserSede.setText("Reservar Sede Entrenamiento");
 
-        jButtonIntrRes.setText("Introducir Resultados");
-
         jButtonAsignResp.setText("Asignar Responsable Infantil");
 
         jButtonInfo.setText("Ver Información");
@@ -50,6 +47,11 @@ public class JFrameJugador extends javax.swing.JFrame {
         jLabelNomUsuario.setText("Pepito");
 
         jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,11 +60,10 @@ public class JFrameJugador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonIntrRes)
                     .addComponent(jButtonReserSede)
                     .addComponent(jButtonAsignResp)
                     .addComponent(jButtonInfo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelUsuario)
@@ -76,64 +77,32 @@ public class JFrameJugador extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonReserSede)
                     .addComponent(jLabelUsuario)
                     .addComponent(jLabelNomUsuario))
-                .addGap(27, 27, 27)
-                .addComponent(jButtonIntrRes)
-                .addGap(27, 27, 27)
+                .addGap(36, 36, 36)
                 .addComponent(jButtonAsignResp)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonInfo)
-                    .addComponent(jButtonSalir))
+                .addGap(36, 36, 36)
+                .addComponent(jButtonInfo)
+                .addGap(7, 7, 7)
+                .addComponent(jButtonSalir)
                 .addGap(79, 79, 79))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrameJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrameJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrameJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrameJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        this.setVisible(false);
+        login.setVisible(true);
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFrameJugador().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAsignResp;
     private javax.swing.JButton jButtonInfo;
-    private javax.swing.JButton jButtonIntrRes;
     private javax.swing.JButton jButtonReserSede;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelNomUsuario;

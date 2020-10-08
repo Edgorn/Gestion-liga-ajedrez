@@ -26,12 +26,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButtonIntrRes" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonReserSede" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonAsignResp" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonInfo" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="75" max="32767" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabelUsuario" min="-2" max="-2" attributes="0"/>
@@ -50,21 +49,18 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonReserSede" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelNomUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jButtonIntrRes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jButtonAsignResp" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonInfo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSalir" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="jButtonInfo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <Component id="jButtonSalir" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -74,11 +70,6 @@
     <Component class="javax.swing.JButton" name="jButtonReserSede">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reservar Sede Entrenamiento"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonIntrRes">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Introducir Resultados"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAsignResp">
@@ -105,6 +96,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
