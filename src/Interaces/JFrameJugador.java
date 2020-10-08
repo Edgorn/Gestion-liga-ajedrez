@@ -27,17 +27,69 @@ public class JFrameJugador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonReserSede = new javax.swing.JButton();
+        jButtonIntrRes = new javax.swing.JButton();
+        jButtonAsignResp = new javax.swing.JButton();
+        jButtonInfo = new javax.swing.JButton();
+        jLabelUsuario = new javax.swing.JLabel();
+        jLabelNomUsuario = new javax.swing.JLabel();
+        jButtonSalir = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonReserSede.setText("Reservar Sede Entrenamiento");
+
+        jButtonIntrRes.setText("Introducir Resultados");
+
+        jButtonAsignResp.setText("Asignar Responsable Infantil");
+
+        jButtonInfo.setText("Ver Información");
+
+        jLabelUsuario.setText("Usuario: ");
+
+        jLabelNomUsuario.setText("Pepito");
+
+        jButtonSalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonIntrRes)
+                    .addComponent(jButtonReserSede)
+                    .addComponent(jButtonAsignResp)
+                    .addComponent(jButtonInfo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelUsuario)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabelNomUsuario))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSalir)
+                        .addGap(15, 15, 15)))
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonReserSede)
+                    .addComponent(jLabelUsuario)
+                    .addComponent(jLabelNomUsuario))
+                .addGap(27, 27, 27)
+                .addComponent(jButtonIntrRes)
+                .addGap(27, 27, 27)
+                .addComponent(jButtonAsignResp)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonInfo)
+                    .addComponent(jButtonSalir))
+                .addGap(79, 79, 79))
         );
 
         pack();
@@ -79,5 +131,12 @@ public class JFrameJugador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAsignResp;
+    private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonIntrRes;
+    private javax.swing.JButton jButtonReserSede;
+    private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabelNomUsuario;
+    private javax.swing.JLabel jLabelUsuario;
     // End of variables declaration//GEN-END:variables
 }
