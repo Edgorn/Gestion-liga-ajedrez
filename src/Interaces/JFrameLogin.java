@@ -56,6 +56,11 @@ public class JFrameLogin extends javax.swing.JFrame {
 
         jButtonRegistrar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonRegistrar.setText("REGISTRAR");
+        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,14 +106,20 @@ public class JFrameLogin extends javax.swing.JFrame {
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
         if (jTextFieldUsuario.getText().equals("Jugador")) {
-            JFrameJugador jugador = new JFrameJugador();
+            JFrameJugador jugador = new JFrameJugador(this);
             jugador.setVisible(true);
         } else {
-            JFrameAdministrador admin = new JFrameAdministrador();
+            JFrameAdministrador admin = new JFrameAdministrador(this);
             admin.setVisible(true);
         }
         this.setVisible(false);
     }//GEN-LAST:event_jButtonIniciarActionPerformed
+
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        JFrameRegistrar registrar = new JFrameRegistrar(this);
+        this.setVisible(false);
+        registrar.setVisible(true);
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
