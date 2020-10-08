@@ -15,10 +15,10 @@ public class JFrameTorneo extends javax.swing.JFrame {
     /**
      * Creates new form JFrameTorneo
      */
-    JFrameJugador jugador;
-    public JFrameTorneo(JFrameJugador j) {
+    JFrameInfo info;
+    public JFrameTorneo(JFrameInfo i) {
         initComponents();
-        jugador = j;
+        info = i;
     }
 
     /**
@@ -108,7 +108,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         this.setVisible(false);
-        jugador.setVisible(true);
+        info.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
 
