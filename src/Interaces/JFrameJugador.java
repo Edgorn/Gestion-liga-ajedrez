@@ -28,19 +28,22 @@ public class JFrameJugador extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonReserSede = new javax.swing.JButton();
-        jButtonAsignResp = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
         jLabelUsuario = new javax.swing.JLabel();
         jLabelNomUsuario = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
+        jButtonOpciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonReserSede.setText("Reservar Sede Entrenamiento");
 
-        jButtonAsignResp.setText("Asignar Responsable Infantil");
-
         jButtonInfo.setText("Ver Información");
+        jButtonInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInfoActionPerformed(evt);
+            }
+        });
 
         jLabelUsuario.setText("Usuario: ");
 
@@ -53,42 +56,48 @@ public class JFrameJugador extends javax.swing.JFrame {
             }
         });
 
+        jButtonOpciones.setText("Opciones Administrador");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonReserSede)
-                    .addComponent(jButtonAsignResp)
-                    .addComponent(jButtonInfo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonOpciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalir)
+                        .addGap(68, 68, 68))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonReserSede)
+                            .addComponent(jButtonInfo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(jLabelUsuario)
                         .addGap(11, 11, 11)
-                        .addComponent(jLabelNomUsuario))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSalir)
-                        .addGap(15, 15, 15)))
-                .addGap(51, 51, 51))
+                        .addComponent(jLabelNomUsuario)
+                        .addGap(51, 51, 51))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonReserSede)
                     .addComponent(jLabelUsuario)
                     .addComponent(jLabelNomUsuario))
-                .addGap(36, 36, 36)
-                .addComponent(jButtonAsignResp)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonInfo)
-                .addGap(7, 7, 7)
-                .addComponent(jButtonSalir)
-                .addGap(79, 79, 79))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jButtonSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonOpciones)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,10 +108,16 @@ public class JFrameJugador extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
+        JFrameInfo info = new JFrameInfo(this);
+        this.setVisible(false);
+        info.setVisible(true);
+    }//GEN-LAST:event_jButtonInfoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAsignResp;
     private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonOpciones;
     private javax.swing.JButton jButtonReserSede;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelNomUsuario;

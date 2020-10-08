@@ -13,7 +13,10 @@ package Interaces;
 public class JFrameInfo extends javax.swing.JFrame {
 
     /** Creates new form JFrameInfo */
-    public JFrameInfo() {
+    JFrameJugador jugador;
+    
+    public JFrameInfo(JFrameJugador j) {
+        jugador = j;
         initComponents();
     }
 
@@ -29,7 +32,7 @@ public class JFrameInfo extends javax.swing.JFrame {
         jLabelTitulo = new javax.swing.JLabel();
         jButtonJugador = new javax.swing.JButton();
         jButtonTorneos = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonClubes = new javax.swing.JButton();
         jButtonAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,10 +42,25 @@ public class JFrameInfo extends javax.swing.JFrame {
         jButtonJugador.setText("Jugador");
 
         jButtonTorneos.setText("Torneos");
+        jButtonTorneos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTorneosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Clubes");
+        jButtonClubes.setText("Clubes");
+        jButtonClubes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClubesActionPerformed(evt);
+            }
+        });
 
         jButtonAtras.setText("Atrás");
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +76,7 @@ public class JFrameInfo extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jButtonTorneos)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jButtonClubes)
                 .addGap(53, 53, 53))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -74,7 +92,7 @@ public class JFrameInfo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonJugador)
                     .addComponent(jButtonTorneos)
-                    .addComponent(jButton3))
+                    .addComponent(jButtonClubes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButtonAtras)
                 .addContainerGap())
@@ -83,10 +101,27 @@ public class JFrameInfo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+        this.setVisible(false);
+        jugador.setVisible(true);
+    }//GEN-LAST:event_jButtonAtrasActionPerformed
+
+    private void jButtonClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClubesActionPerformed
+        JFrameClubes clubes = new JFrameClubes(this);
+        this.setVisible(false);
+        clubes.setVisible(true);
+    }//GEN-LAST:event_jButtonClubesActionPerformed
+
+    private void jButtonTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTorneosActionPerformed
+        JFrameTorneo torneos = new JFrameTorneo(this);
+        this.setVisible(false);
+        torneos.setVisible(true);
+    }//GEN-LAST:event_jButtonTorneosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAtras;
+    private javax.swing.JButton jButtonClubes;
     private javax.swing.JButton jButtonJugador;
     private javax.swing.JButton jButtonTorneos;
     private javax.swing.JLabel jLabelTitulo;
