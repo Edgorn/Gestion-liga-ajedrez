@@ -33,6 +33,9 @@ public class JFrameJugador extends javax.swing.JFrame {
         jLabelNomUsuario = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
         jButtonInscr = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenuModificar = new javax.swing.JMenu();
+        jMenuItemJugador = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +57,25 @@ public class JFrameJugador extends javax.swing.JFrame {
             }
         });
 
+        jMenuModificar.setText("Modificar");
+        jMenuModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuModificarActionPerformed(evt);
+            }
+        });
+
+        jMenuItemJugador.setText("Modificar datos del jugador");
+        jMenuItemJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemJugadorActionPerformed(evt);
+            }
+        });
+        jMenuModificar.add(jMenuItemJugador);
+
+        jMenuBar2.add(jMenuModificar);
+
+        setJMenuBar(jMenuBar2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,7 +96,7 @@ public class JFrameJugador extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsuario)
                     .addComponent(jLabelNomUsuario))
@@ -82,7 +104,7 @@ public class JFrameJugador extends javax.swing.JFrame {
                 .addComponent(jButtonInscr)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSalir)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,11 +126,24 @@ public class JFrameJugador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonInscrActionPerformed
 
+    private void jMenuItemJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugadorActionPerformed
+        JFrameEditJugador edit = new JFrameEditJugador(this);
+        this.setVisible(false);
+        edit.setVisible(true);
+    }//GEN-LAST:event_jMenuItemJugadorActionPerformed
+
+    private void jMenuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarActionPerformed
+        
+    }//GEN-LAST:event_jMenuModificarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonInscr;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItemJugador;
+    private javax.swing.JMenu jMenuModificar;
     // End of variables declaration//GEN-END:variables
 }
