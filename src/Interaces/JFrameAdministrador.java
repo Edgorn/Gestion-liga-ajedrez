@@ -15,6 +15,10 @@ public class JFrameAdministrador extends javax.swing.JFrame {
      * Creates new form JFrameAdministrador
      */
     
+    JFrameJugador jugador;
+    JFrameClubes clubes;
+    JFrameTorneo torneos;
+    JFrameInfo info;
     JFrameLogin login;
     public JFrameAdministrador(JFrameLogin l) {
         initComponents();
@@ -31,29 +35,15 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        botonReservaSede = new javax.swing.JButton();
-        responsableMenores = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         EtiquetaAdministrador = new javax.swing.JLabel();
-        consultarInfoTorneos = new javax.swing.JButton();
+        botonJugadores = new javax.swing.JButton();
+        botonClubes = new javax.swing.JButton();
+        botonTorneos = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        botonReservaSede.setText("Reservar sede para entrenamiento");
-        botonReservaSede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonReservaSedeActionPerformed(evt);
-            }
-        });
-
-        responsableMenores.setText("Añadir responsable para menores");
-        responsableMenores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                responsableMenoresActionPerformed(evt);
-            }
-        });
 
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
@@ -64,10 +54,24 @@ public class JFrameAdministrador extends javax.swing.JFrame {
 
         EtiquetaAdministrador.setText("Administrador del Sistema");
 
-        consultarInfoTorneos.setText("Ver información torneos");
-        consultarInfoTorneos.addActionListener(new java.awt.event.ActionListener() {
+        botonJugadores.setText("Jugadores");
+        botonJugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarInfoTorneosActionPerformed(evt);
+                botonJugadoresActionPerformed(evt);
+            }
+        });
+
+        botonClubes.setText("Clubes");
+        botonClubes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonClubesActionPerformed(evt);
+            }
+        });
+
+        botonTorneos.setText("Torneos");
+        botonTorneos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTorneosActionPerformed(evt);
             }
         });
 
@@ -78,20 +82,17 @@ public class JFrameAdministrador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(responsableMenores))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(botonReservaSede))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(consultarInfoTorneos))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(213, 213, 213)
-                        .addComponent(Salir)))
+                        .addComponent(Salir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botonJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonClubes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonTorneos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,13 +100,13 @@ public class JFrameAdministrador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonJugadores)
+                .addGap(50, 50, 50)
+                .addComponent(botonClubes)
                 .addGap(43, 43, 43)
-                .addComponent(botonReservaSede)
-                .addGap(34, 34, 34)
-                .addComponent(responsableMenores)
-                .addGap(63, 63, 63)
-                .addComponent(consultarInfoTorneos)
-                .addGap(37, 37, 37)
+                .addComponent(botonTorneos)
+                .addGap(77, 77, 77)
                 .addComponent(Salir)
                 .addGap(42, 42, 42))
         );
@@ -113,32 +114,37 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonReservaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaSedeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonReservaSedeActionPerformed
-
-    private void responsableMenoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableMenoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_responsableMenoresActionPerformed
-
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void consultarInfoTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarInfoTorneosActionPerformed
-        
-        
-    }//GEN-LAST:event_consultarInfoTorneosActionPerformed
+    private void botonJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugadoresActionPerformed
+        this.setVisible(false);
+        jugador = new JFrameJugador(login);
+        jugador.setVisible(true);
+    }//GEN-LAST:event_botonJugadoresActionPerformed
+
+    private void botonClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClubesActionPerformed
+         this.setVisible(false);
+         clubes = new JFrameClubes(info);
+         clubes.setVisible(true);
+    }//GEN-LAST:event_botonClubesActionPerformed
+
+    private void botonTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTorneosActionPerformed
+        this.setVisible(false);
+        torneos = new JFrameTorneo(jugador);
+        torneos.setVisible(true);
+    }//GEN-LAST:event_botonTorneosActionPerformed
 
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EtiquetaAdministrador;
     private javax.swing.JButton Salir;
-    private javax.swing.JButton botonReservaSede;
-    private javax.swing.JButton consultarInfoTorneos;
+    private javax.swing.JButton botonClubes;
+    private javax.swing.JButton botonJugadores;
+    private javax.swing.JButton botonTorneos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton responsableMenores;
     // End of variables declaration//GEN-END:variables
 }
