@@ -113,9 +113,9 @@ public class JFrameInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonClubesActionPerformed
 
     private void jButtonTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTorneosActionPerformed
-        JFrameTorneo torneos = new JFrameTorneo(this);
-        this.setVisible(false);
-        torneos.setVisible(true);
+        //JFrameTorneo torneos = new JFrameTorneo(this);
+        //this.setVisible(false);
+        //torneos.setVisible(true);
     }//GEN-LAST:event_jButtonTorneosActionPerformed
 
 
