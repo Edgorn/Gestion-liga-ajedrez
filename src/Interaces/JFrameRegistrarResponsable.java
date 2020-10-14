@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author edgar
@@ -14,12 +16,12 @@ public class JFrameRegistrarResponsable extends javax.swing.JFrame {
     /**
      * Creates new form JFrameRegistrarResponsable
      */
-    JFrameRegistrar registrar;
+    JFrameRegistrar frame;
     
     
     public JFrameRegistrarResponsable(JFrameRegistrar r) {
         initComponents();
-        registrar = r;
+        frame = r;
     }
 
     /**
@@ -110,12 +112,12 @@ public class JFrameRegistrarResponsable extends javax.swing.JFrame {
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         this.setVisible(false);
-        registrar.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         this.setVisible(false);
-        registrar.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
 
