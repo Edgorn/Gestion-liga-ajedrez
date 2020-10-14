@@ -15,9 +15,9 @@ public class JFrameAdministrador extends javax.swing.JFrame {
      * Creates new form JFrameAdministrador
      */
     
-    JFrameJugador jugador;
-    JFrameClubes clubes;
-    JFrameTorneo torneos;
+    JFrameAdminJugadores jugador;
+    JFrameAdminClubes clubes;
+    JFrameAdminTorneos torneos;
     JFrameInfo info;
     JFrameLogin login;
     public JFrameAdministrador(JFrameLogin l) {
@@ -45,30 +45,35 @@ public class JFrameAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Salir.setText("Salir");
+        Salir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Salir.setText("SALIR");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
             }
         });
 
-        EtiquetaAdministrador.setText("Administrador del Sistema");
+        EtiquetaAdministrador.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        EtiquetaAdministrador.setText("ADMINISTRADOR DEL SISTEMA");
 
-        botonJugadores.setText("Jugadores");
+        botonJugadores.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonJugadores.setText("JUGADORES");
         botonJugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonJugadoresActionPerformed(evt);
             }
         });
 
-        botonClubes.setText("Clubes");
+        botonClubes.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonClubes.setText("CLUBES");
         botonClubes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonClubesActionPerformed(evt);
             }
         });
 
-        botonTorneos.setText("Torneos");
+        botonTorneos.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonTorneos.setText("TORNEOS");
         botonTorneos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTorneosActionPerformed(evt);
@@ -80,35 +85,37 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(163, 163, 163)
+                        .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(Salir))
+                        .addGap(278, 278, 278)
+                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botonJugadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botonClubes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botonTorneos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(181, Short.MAX_VALUE))
+                        .addGap(246, 246, 246)
+                        .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botonJugadores)
-                .addGap(50, 50, 50)
-                .addComponent(botonClubes)
-                .addGap(43, 43, 43)
-                .addComponent(botonTorneos)
-                .addGap(77, 77, 77)
+                .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
                 .addComponent(Salir)
-                .addGap(42, 42, 42))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -121,19 +128,19 @@ public class JFrameAdministrador extends javax.swing.JFrame {
 
     private void botonJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugadoresActionPerformed
         this.setVisible(false);
-        jugador = new JFrameJugador(login);
+        jugador = new JFrameAdminJugadores(this);
         jugador.setVisible(true);
     }//GEN-LAST:event_botonJugadoresActionPerformed
 
     private void botonClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClubesActionPerformed
          this.setVisible(false);
-         clubes = new JFrameClubes(info);
+         clubes = new JFrameAdminClubes(this);
          clubes.setVisible(true);
     }//GEN-LAST:event_botonClubesActionPerformed
 
     private void botonTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTorneosActionPerformed
         this.setVisible(false);
-        torneos = new JFrameTorneo(jugador);
+        torneos = new JFrameAdminTorneos(this);
         torneos.setVisible(true);
     }//GEN-LAST:event_botonTorneosActionPerformed
 
