@@ -31,8 +31,6 @@ public class JFrameEditJugador extends javax.swing.JFrame {
 
         jLabelNom = new javax.swing.JLabel();
         jTextFieldNom = new javax.swing.JTextField();
-        jLabelEdad = new javax.swing.JLabel();
-        jTextFieldEdad = new javax.swing.JTextField();
         jLabelClub = new javax.swing.JLabel();
         jComboBoxClub = new javax.swing.JComboBox<>();
         jButtonAtras = new javax.swing.JButton();
@@ -41,8 +39,7 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         jButtonRegistrar = new javax.swing.JButton();
         jLabelFecha = new javax.swing.JLabel();
         jTextFieldFecha = new javax.swing.JTextField();
-        jLabelResponsable = new javax.swing.JLabel();
-        jCheckBoxResponsable = new javax.swing.JCheckBox();
+        jButtonResponsable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modificar datos de jugador");
@@ -53,15 +50,6 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         jTextFieldNom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomActionPerformed(evt);
-            }
-        });
-
-        jLabelEdad.setText("Edad:");
-
-        jTextFieldEdad.setText("20");
-        jTextFieldEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEdadActionPerformed(evt);
             }
         });
 
@@ -80,7 +68,7 @@ public class JFrameEditJugador extends javax.swing.JFrame {
 
         jPasswordField1.setText("jPasswordField1");
 
-        jButtonRegistrar.setText("Registrar");
+        jButtonRegistrar.setText("Guardar");
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -91,11 +79,10 @@ public class JFrameEditJugador extends javax.swing.JFrame {
 
         jTextFieldFecha.setText("dd/mm/YY");
 
-        jLabelResponsable.setText("Responsable:");
-
-        jCheckBoxResponsable.addActionListener(new java.awt.event.ActionListener() {
+        jButtonResponsable.setText("Responsable");
+        jButtonResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxResponsableActionPerformed(evt);
+                jButtonResponsableActionPerformed(evt);
             }
         });
 
@@ -104,64 +91,64 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAtras)
-                .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelFecha)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNom)
-                            .addComponent(jLabelEdad)
-                            .addComponent(jLabel1))
-                        .addGap(49, 49, 49)
+                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelFecha)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(69, 69, 69)
+                                    .addComponent(jLabelNom)
+                                    .addComponent(jLabel1))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelResponsable)
-                                    .addComponent(jLabelClub))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxClub, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBoxResponsable)))
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButtonResponsable)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabelClub)
+                                                .addGap(27, 27, 27)
+                                                .addComponent(jComboBoxClub, 0, 103, Short.MAX_VALUE))))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRegistrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAtras)))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNom)
-                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelClub)
-                    .addComponent(jComboBoxClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEdad)
-                    .addComponent(jTextFieldEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelResponsable)
-                    .addComponent(jCheckBoxResponsable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNom)
+                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelClub)
+                            .addComponent(jComboBoxClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFecha)
-                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonResponsable))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAtras)
                     .addComponent(jButtonRegistrar))
@@ -176,36 +163,30 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         jugador.setVisible(true);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
-    private void jCheckBoxResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxResponsableActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxResponsableActionPerformed
-
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
-    private void jTextFieldEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEdadActionPerformed
 
     private void jTextFieldNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomActionPerformed
 
+    private void jButtonResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResponsableActionPerformed
+        JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
+        responsable.setVisible(true);
+    }//GEN-LAST:event_jButtonResponsableActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonRegistrar;
-    private javax.swing.JCheckBox jCheckBoxResponsable;
+    private javax.swing.JButton jButtonResponsable;
     private javax.swing.JComboBox<String> jComboBoxClub;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelClub;
-    private javax.swing.JLabel jLabelEdad;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelNom;
-    private javax.swing.JLabel jLabelResponsable;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldNom;
     // End of variables declaration//GEN-END:variables
