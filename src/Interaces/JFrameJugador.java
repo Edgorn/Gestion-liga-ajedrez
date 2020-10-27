@@ -33,6 +33,9 @@ public class JFrameJugador extends javax.swing.JFrame {
         jLabelNomUsuario = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
         jButtonInscr = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        clubActual = new javax.swing.JLabel();
+        cambiarClub = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuModificar = new javax.swing.JMenu();
         jMenuItemJugador = new javax.swing.JMenuItem();
@@ -54,6 +57,17 @@ public class JFrameJugador extends javax.swing.JFrame {
         jButtonInscr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInscrActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Club:");
+
+        clubActual.setText("G2");
+
+        cambiarClub.setText("Cambiar Club");
+        cambiarClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarClubActionPerformed(evt);
             }
         });
 
@@ -81,30 +95,44 @@ public class JFrameJugador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonInscr)
-                        .addGap(11, 11, 11)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonSalir))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelUsuario)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelNomUsuario)))
-                .addGap(28, 28, 28))
+                        .addGap(46, 46, 46)
+                        .addComponent(jButtonInscr, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cambiarClub)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelUsuario)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelNomUsuario)
+                                    .addComponent(clubActual))))))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUsuario)
-                    .addComponent(jLabelNomUsuario))
-                .addGap(37, 37, 37)
-                .addComponent(jButtonInscr)
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNomUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(clubActual))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cambiarClub)
+                    .addComponent(jButtonInscr, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(jButtonSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -136,10 +164,45 @@ public class JFrameJugador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuModificarActionPerformed
 
+    private void cambiarClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClubActionPerformed
+        String nuevoClub = JOptionPane.showInputDialog(null, "Introduce el nombre de tu equipo actual: ");
+        
+        switch(nuevoClub)
+        {
+            case "Club1":
+                clubActual.setText(nuevoClub);
+                break;
+                
+            case "Club2":
+                clubActual.setText(nuevoClub);
+                break;
+                
+            case "Club3":
+                clubActual.setText(nuevoClub);
+                break;
+                
+            case "Club4":
+                clubActual.setText(nuevoClub);
+                break;
+                
+            case "Club5":
+                clubActual.setText(nuevoClub);
+                break;
+            
+            default:
+              JOptionPane.showMessageDialog(null, "No se ha encontrado ese club en nuestro registro...");
+              
+              
+        }
+    }//GEN-LAST:event_cambiarClubActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cambiarClub;
+    private javax.swing.JLabel clubActual;
     private javax.swing.JButton jButtonInscr;
     private javax.swing.JButton jButtonSalir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelNomUsuario;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JMenuBar jMenuBar2;

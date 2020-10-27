@@ -36,11 +36,17 @@ public class JFrameTorneo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPartidas = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        asignarSede = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         registrarseTorneo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         registrarseTorneo.setText("INSCRIBIRSE A UN TORNEO");
+        registrarseTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarseTorneoActionPerformed(evt);
+            }
+        });
 
         etiqTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         etiqTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -72,6 +78,14 @@ public class JFrameTorneo extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de partidas");
 
+        asignarSede.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        asignarSede.setText("ASIGNAR SEDE DE UN TORNEO");
+        asignarSede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asignarSedeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,7 +98,10 @@ public class JFrameTorneo extends javax.swing.JFrame {
                         .addGap(159, 159, 159))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(registrarseTorneo)
-                        .addGap(70, 70, 70)))
+                        .addGap(70, 70, 70))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(asignarSede)
+                        .addGap(56, 56, 56)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
@@ -103,12 +120,13 @@ public class JFrameTorneo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registrarseTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(asignarSede, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(112, 112, 112))))
@@ -122,8 +140,17 @@ public class JFrameTorneo extends javax.swing.JFrame {
         jugador.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
+    private void registrarseTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseTorneoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registrarseTorneoActionPerformed
+
+    private void asignarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asignarSedeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_asignarSedeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton asignarSede;
     private javax.swing.JButton botonAtras;
     private javax.swing.JLabel etiqTitulo;
     private javax.swing.JLabel jLabel1;
