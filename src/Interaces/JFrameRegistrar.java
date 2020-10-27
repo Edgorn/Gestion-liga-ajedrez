@@ -16,9 +16,9 @@ public class JFrameRegistrar extends javax.swing.JFrame {
     /**
      * Creates new form JFrameRegistrar
      */
-    JFrameLogin frame;
+    JFrame frame;
     
-    public JFrameRegistrar(JFrameLogin l) {
+    public JFrameRegistrar(JFrame l) {
         initComponents();
         frame = l;
     }
@@ -212,7 +212,9 @@ public class JFrameRegistrar extends javax.swing.JFrame {
 
     private void jButtonResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResponsableActionPerformed
         JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
+        this.setVisible(false);
         responsable.setVisible(true);
+        
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
 

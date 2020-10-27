@@ -16,10 +16,10 @@ public class JFrameRegistrarResponsable extends javax.swing.JFrame {
     /**
      * Creates new form JFrameRegistrarResponsable
      */
-    JFrameRegistrar frame;
+    JFrame frame;
     
     
-    public JFrameRegistrarResponsable(JFrameRegistrar r) {
+    public JFrameRegistrarResponsable(JFrame r) {
         initComponents();
         frame = r;
     }

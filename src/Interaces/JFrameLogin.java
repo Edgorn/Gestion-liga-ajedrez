@@ -16,7 +16,6 @@ public class JFrameLogin extends javax.swing.JFrame {
      */
     public JFrameLogin() {
         initComponents();
-        //asad
     }
 
     /**

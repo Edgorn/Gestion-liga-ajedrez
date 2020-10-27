@@ -172,8 +172,8 @@ public class JFrameEditJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNomActionPerformed
 
     private void jButtonResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResponsableActionPerformed
-        JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
-        responsable.setVisible(true);
+        /*JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
+        responsable.setVisible(true);*/
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
 
