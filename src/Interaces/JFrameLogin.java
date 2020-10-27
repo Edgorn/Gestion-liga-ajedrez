@@ -107,12 +107,14 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
         if (jTextFieldUsuario.getText().equals("Jugador")) {
             JFrameJugador jugador = new JFrameJugador(this);
+            this.setVisible(false);
             jugador.setVisible(true);
         } else {
             JFrameAdministrador admin = new JFrameAdministrador(this);
+            this.setVisible(false);
             admin.setVisible(true);
         }
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
