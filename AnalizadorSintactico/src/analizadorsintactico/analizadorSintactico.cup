@@ -1,0 +1,45 @@
+import java_cup.runtime.*; 
+import java.io.*; 
+import java.util.*; 
+import java.lang.String;
+
+action code {: 
+
+:}; 
+
+parser code {: 
+    public static void main(String[] arg){     
+        if (arg.length!=1)       
+            System.out.println("Debe dar el nombre del fichero de entrada como parámetro");    
+        else {         
+            String fileName=arg[0];          
+            Lexer miAnalizadorLexico=null;          
+            parser parserObj=null;          
+            Symbol x=null;          
+
+            try{            
+                miAnalizadorLexico = new Lexer(new InputStreamReader(new FileInputStream(fileName)));          
+            } catch (IOException e){            
+                System.err.println("Fichero de entrada "+fileName+" no encontrado");            
+                System.exit(0);          
+            }         
+
+            try{             
+                parserObj = new parser(Lexer);             
+                x=parserObj.parse();          
+            } catch (Exception e) {             
+                e.printStackTrace(System.err);             
+                System.exit(0);          
+            }      
+        } // end else 
+    } 
+:}; 
+
+terminal LEER, MOSTRAR, PUNTOCOMA, ASIGNACION, SUMA, RESTA, MULTIPLICACION, DIVISION;
+terminal String ID, NUM;
+
+/* Gramática */
+
+
+
+
