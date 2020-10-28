@@ -5,6 +5,7 @@
  */
 package Interaces;
 
+import Modelo.Jugador;
 import Modelo.LigaAjedrez;
 
 /**
@@ -113,7 +114,8 @@ public class JFrameLogin extends javax.swing.JFrame {
         String login = liga.login(jTextFieldUsuario.getText(),jTextFieldContraseña.getText());
         
         if (login.equals("jugador")) {
-            JFrameJugador jugador = new JFrameJugador(this);
+            Jugador j = liga.getJugador();
+            JFrameJugador jugador = new JFrameJugador(this,j);
             this.setVisible(false);
             jugador.setVisible(true);
         } else {

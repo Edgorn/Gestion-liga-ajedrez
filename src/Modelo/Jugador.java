@@ -51,5 +51,9 @@ public class Jugador {
         return contraseña;
     }
     
+    public ArrayList<Torneo> getTorneos(){
+        return torneos;
+    }
+   
     
 }

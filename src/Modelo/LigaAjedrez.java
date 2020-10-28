@@ -38,6 +38,19 @@ public class LigaAjedrez {
         jugadores.add(j1);
         jugadores.add(j2);
         jugadores.add(j3);
+        
+        Club c1 = new Club();
+        c1.setNombre("ValenciaCA");
+        c1.addJugador(j1);
+        
+        Club c2 = new Club();
+        c2.setNombre("MadridCA");
+        
+        Torneo t1 = new Torneo();
+        t1.setNombre("Liga Endesa");
+        t1.addClub(c2);
+        t1.addJugador(j1);
+        j1.addTorneo(t1);
     }
     
     public String login(String n, String c) {
@@ -51,5 +64,9 @@ public class LigaAjedrez {
         }
         
         return respuesta;
+    }
+    
+    public Jugador getJugador(){
+        return jugadorActual;
     }
 }

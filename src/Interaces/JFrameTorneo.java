@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import Modelo.Partida;
+import Modelo.Torneo;
 import javax.swing.JFrame;
 
 /**
@@ -18,9 +20,12 @@ public class JFrameTorneo extends javax.swing.JFrame {
      * Creates new form JFrameTorneo
      */
     JFrame frame;
-    public JFrameTorneo(JFrame ju) {
+    Torneo torneo;
+    public JFrameTorneo(JFrame ju,Torneo t) {
         initComponents();
         frame = ju;
+        torneo = t;
+        
     }
 
     /**
@@ -131,6 +136,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_registrarseTorneoActionPerformed
 
+                    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtras;

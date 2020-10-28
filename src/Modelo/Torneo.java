@@ -15,10 +15,12 @@ public class Torneo {
     String nombre;
     ArrayList<Club> clubes;
     ArrayList<Jugador> jugadores;
+    ArrayList<Partida> partidas;
 
     public Torneo() {
         clubes = new ArrayList<Club>();
         jugadores = new ArrayList<Jugador>();
+        partidas = new ArrayList<Partida>();
     }
 
     public void setNombre(String nombre) {
@@ -33,7 +35,18 @@ public class Torneo {
         jugadores.add(jugador);
     }
     
+    public void addPartida(Partida partida) {
+        partidas.add(partida);
+    }
     
+    public ArrayList<Partida> getPartidas(){
+        return this.partidas;
+    }
+    
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
     
     
 }
