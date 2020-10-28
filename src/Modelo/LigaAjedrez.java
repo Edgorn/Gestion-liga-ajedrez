@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -41,14 +42,18 @@ public class LigaAjedrez {
         
         Club c1 = new Club();
         c1.setNombre("ValenciaCA");
-        c1.addJugador(j1);
+        //c1.addJugador(j1);
+        
         
         Club c2 = new Club();
         c2.setNombre("MadridCA");
         
+        clubes.add(c1);
+        clubes.add(c2);
+        
         Torneo t1 = new Torneo();
         t1.setNombre("Liga Endesa");
-        t1.addClub(c2);
+        //t1.addClub(c2);
         t1.addJugador(j1);
         j1.addTorneo(t1);
     }
@@ -66,7 +71,56 @@ public class LigaAjedrez {
         return respuesta;
     }
     
-    public Jugador getJugador(){
-        return jugadorActual;
+    public ArrayList<String> listaClubes() {
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<clubes.size(); i++) {
+            lista.add(clubes.get(i).getNombre());
+        }
+        
+        return lista;
     }
+    
+    public boolean registrarJugador(String nombre, String contrasenya, Date nacimiento, String club) {
+        boolean insercion;
+        Jugador j = null;
+        
+        if (login(nombre,contrasenya).equals("Nadie")) {
+            for (int i=0; i<clubes.size();i++) {
+                if (clubes.get(i).esClub(club)) {
+                    j = new Jugador();
+                    j.setNombre(nombre);
+                    j.setContraseña(contrasenya);
+                    j.setNacimiento(nacimiento);
+                    j.setClub(clubes.get(i));
+                    jugadores.add(j);
+                    clubes.get(i).addJugador(j);
+                }
+            }
+        }
+            
+        if (j==null) {
+            insercion = false;
+        } else {
+            insercion = true;
+        }
+        
+        return insercion;
+    }
+    
+    public Club clubPorNombre(String nombre) {
+        Club c = null;
+        
+        for (int i=0; i<clubes.size();i++) {
+            if (clubes.get(i).esClub(nombre)) {
+                c = clubes.get(i);
+            }
+        }
+        
+        return c;
+    }
+    
+    /*public Jugador getJugador(){
+        return jugadorActual;
+    }*/
 }

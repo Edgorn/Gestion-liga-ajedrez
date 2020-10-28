@@ -5,6 +5,7 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,13 +22,15 @@ public class JFrameRegistrar extends javax.swing.JFrame {
      * Creates new form JFrameRegistrar
      */
     JFrame frame;
+    LigaAjedrez liga;
     int anyo = 2020;
     
-    public JFrameRegistrar(JFrame l) {
+    public JFrameRegistrar(JFrame l, LigaAjedrez la) {
         initComponents();
         frame = l;
+        liga = la;
         iniciarFecha();
-        //jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        llenarClubes();
     }
 
     /**
@@ -123,7 +126,6 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         });
 
         jComboBoxClub.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBoxClub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Club 1", "Club 2", "Club 3", "Club 4" }));
 
         jComboBoxDia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
@@ -237,13 +239,24 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         int dia = jComboBoxDia.getSelectedIndex()+1;
         int mes = jComboBoxMes.getSelectedIndex();
         int any = Integer.parseInt(jComboBoxAnyo.getSelectedItem()+"");
-        //Date fecha = new Date(any, mes, dia);
+        Date fecha = new Date(any, mes, dia);
         String club = jComboBoxClub.getSelectedItem()+"";
         
-        System.out.println(nombre+" - "+contrasenya+" - "+contrasenyaRepetida+" - "+any+" - "+mes+" - "+dia+" - "+club);
+        if (contrasenya.equals(contrasenyaRepetida)) {
+            if (liga.registrarJugador(nombre, contrasenya, fecha, club)) {
+                System.out.println("Insercion completada");
+                this.setVisible(false);
+                frame.setVisible(true);
+            } else {
+                System.out.println("Error: El Jugador registrado ya existe");
+            }
+        } else {
+            System.out.println("Error: Las contraseñas no coinciden");
+        }
         
-        /*this.setVisible(false);
-        frame.setVisible(true);*/
+        
+        
+        
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
@@ -338,6 +351,14 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         
         for (int i = 1; i<=totalDias; i++) {
             jComboBoxDia.addItem(i+"");
+        }
+    }
+    
+    private void llenarClubes() {
+        ArrayList<String> clubes = liga.listaClubes();
+        
+        for (int i=0; i<clubes.size(); i++) {
+            jComboBoxClub.addItem(clubes.get(i));
         }
     }
     

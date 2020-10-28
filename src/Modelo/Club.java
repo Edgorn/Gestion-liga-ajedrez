@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author edgar
  */
 public class Club {
-    String nombre;
-    ArrayList<Jugador> jugadores;
-    ArrayList<Torneo> torneos;
+    private String nombre;
+    private ArrayList<Jugador> jugadores;
+    private ArrayList<Torneo> torneos;
 
     public Club() {
         jugadores = new ArrayList<Jugador>();
@@ -31,5 +31,20 @@ public class Club {
     
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public boolean esClub(String n){
+        boolean respuesta;
+        if (nombre.equals(n)) {
+            respuesta = true;
+        } else {
+            respuesta = false;
+        }
+        
+        return respuesta;
     }
 }

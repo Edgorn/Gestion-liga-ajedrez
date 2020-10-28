@@ -114,8 +114,8 @@ public class JFrameLogin extends javax.swing.JFrame {
         String login = liga.login(jTextFieldUsuario.getText(),jTextFieldContraseña.getText());
         
         if (login.equals("jugador")) {
-            Jugador j = liga.getJugador();
-            JFrameJugador jugador = new JFrameJugador(this,j);
+            vaciarCampos();
+            JFrameJugador jugador = new JFrameJugador(this, liga);
             this.setVisible(false);
             jugador.setVisible(true);
         } else {
@@ -128,11 +128,16 @@ public class JFrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIniciarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        JFrameRegistrar registrar = new JFrameRegistrar(this);
+        vaciarCampos();
+        JFrameRegistrar registrar = new JFrameRegistrar(this, liga);
         this.setVisible(false);
         registrar.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
+    private void vaciarCampos() {
+        jTextFieldUsuario.setText("");
+        jTextFieldContraseña.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIniciar;
