@@ -1,6 +1,7 @@
 package gestionligaajedrez;
 
 import Interaces.JFrameLogin;
+import Modelo.LigaAjedrez;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,7 +22,8 @@ public class GestionLigaAjedrez {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        JFrameLogin login = new JFrameLogin();
+        LigaAjedrez modelo = new LigaAjedrez();
+        JFrameLogin login = new JFrameLogin(modelo);
         
         login.setVisible(true);
     }

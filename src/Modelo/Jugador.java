@@ -42,4 +42,14 @@ public class Jugador {
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+    
+    
 }

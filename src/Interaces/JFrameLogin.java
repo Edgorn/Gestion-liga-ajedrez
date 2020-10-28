@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
+
 /**
  *
  * @author edgar
@@ -14,7 +16,10 @@ public class JFrameLogin extends javax.swing.JFrame {
     /**
      * Creates new form JFrameLogin
      */
-    public JFrameLogin() {
+    LigaAjedrez liga;
+    
+    public JFrameLogin(LigaAjedrez l) {
+        liga = l;
         initComponents();
     }
 
@@ -105,14 +110,17 @@ public class JFrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
-        if (jTextFieldUsuario.getText().equals("Jugador")) {
+        String login = liga.login(jTextFieldUsuario.getText(),jTextFieldContraseña.getText());
+        
+        if (login.equals("jugador")) {
             JFrameJugador jugador = new JFrameJugador(this);
             this.setVisible(false);
             jugador.setVisible(true);
         } else {
-            JFrameAdministrador admin = new JFrameAdministrador(this);
+            System.out.println("Nombre y contraseña incorrectos");
+            /*JFrameAdministrador admin = new JFrameAdministrador(this);
             this.setVisible(false);
-            admin.setVisible(true);
+            admin.setVisible(true);*/
         }
         
     }//GEN-LAST:event_jButtonIniciarActionPerformed
