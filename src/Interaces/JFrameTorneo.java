@@ -26,6 +26,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
         frame = ju;
         liga = la;
         jButtonInscribirse.setEnabled(!liga.inscrito());
+        anyadirPartidas();
     }
 
     /**
@@ -70,11 +71,6 @@ public class JFrameTorneo extends javax.swing.JFrame {
 
         listaPartidas.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         listaPartidas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        listaPartidas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Partida1", "Partida2", "Partida3", "Partida4", "Partida5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listaPartidas.setToolTipText("");
         listaPartidas.setAlignmentX(5.0F);
         listaPartidas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -160,6 +156,14 @@ public class JFrameTorneo extends javax.swing.JFrame {
         //partidas.setVisible(true);
     }//GEN-LAST:event_modificarPartidasActionPerformed
 
+    private void anyadirPartidas(){
+        if (liga.listaPartidas().size()>0){
+            String [] lista = new String[liga.listaPartidas().size()];
+            for(int i=0;i<liga.listaPartidas().size();i++)
+                lista[i]=liga.listaPartidas().get(i);
+            listaPartidas.setListData(lista);
+        }
+    }
                     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

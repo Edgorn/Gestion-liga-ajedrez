@@ -21,6 +21,7 @@ public class LigaAjedrez {
     Jugador jugadorActual;
     Torneo torneoActual;
     Responsable responsableActual;
+    Partida partidaActual;
     
     public LigaAjedrez() {
         usuarios = new ArrayList<Usuario>();
@@ -77,7 +78,12 @@ public class LigaAjedrez {
         
         Partida p1 = new Partida();
         p1.setJ_local(j1);
+        j1.addPartida(p1);
         p1.setJ_visitante(j2);
+        j2.addPartida(p1);
+        p1.setTorneo(t1);
+        t1.addPartida(p1);
+        partidas.add(p1);
     }
     
     public String login(String n, String c) {
@@ -100,6 +106,16 @@ public class LigaAjedrez {
         
         for (int i=0; i<clubes.size(); i++) {
             lista.add(clubes.get(i).getNombre());
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<String> listaPartidas(){
+        ArrayList<Partida> lista_partidas = jugadorActual.partidaTorneo(torneoActual);
+        ArrayList<String> lista = new ArrayList<String>();
+        for(int i = 0; i < lista_partidas.size(); i++){
+            lista.add(lista_partidas.get(i).nombrePartida());
         }
         
         return lista;

@@ -126,7 +126,7 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        JFramePartidas partidas = new JFramePartidas(this);
+        JFramePartidas partidas = new JFramePartidas(this, liga);
         this.setVisible(false);
         partidas.setVisible(true);
     }//GEN-LAST:event_botonModificarActionPerformed

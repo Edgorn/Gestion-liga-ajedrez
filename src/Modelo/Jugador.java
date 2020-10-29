@@ -17,10 +17,12 @@ public class Jugador extends Usuario{
     Date nacimiento;
     Club club;
     ArrayList<Torneo> torneos;
+    ArrayList<Partida> partidas;
     Responsable responsable;
 
     public Jugador() {
         torneos = new ArrayList<Torneo>();
+        partidas = new ArrayList<Partida>();
     }
 
     public void setNacimiento(Date nacimiento) {
@@ -33,6 +35,10 @@ public class Jugador extends Usuario{
     
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
+    }
+    
+    public void addPartida(Partida partida) {
+        partidas.add(partida);
     }
     
     public void setResponsable(Responsable r) {
@@ -58,6 +64,19 @@ public class Jugador extends Usuario{
         
         return respuesta;
     }
+    
+    public ArrayList<Partida> partidaTorneo(Torneo t) {
+        ArrayList <Partida> lista = new ArrayList<Partida>();
+        
+        for (int i=0; i<partidas.size(); i++) {
+            if (partidas.get(i).esPartida(t)) {
+                lista.add(partidas.get(i));
+            }
+        }
+        
+        return lista;
+    }
+
     
     @Override
     public String tipo() {

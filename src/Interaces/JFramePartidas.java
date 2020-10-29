@@ -5,6 +5,7 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
 import javax.swing.JFrame;
 
 /**
@@ -17,9 +18,14 @@ public class JFramePartidas extends javax.swing.JFrame {
      * Creates new form JFrameTorneo
      */
     JFrame frame;
-    public JFramePartidas(JFrame t) {
+    LigaAjedrez liga;
+    
+    
+    
+    public JFramePartidas(JFrame t, LigaAjedrez la) {
         initComponents();
         frame = t;
+        liga = la;
     }
 
     /**
