@@ -5,9 +5,11 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
 import Modelo.Partida;
 import Modelo.Torneo;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,11 +22,11 @@ public class JFrameTorneo extends javax.swing.JFrame {
      * Creates new form JFrameTorneo
      */
     JFrame frame;
-    Torneo torneo;
-    public JFrameTorneo(JFrame ju,Torneo t) {
+    LigaAjedrez liga;
+    public JFrameTorneo(JFrame ju,LigaAjedrez la) {
         initComponents();
         frame = ju;
-        torneo = t;
+        liga = la;
         
     }
 
@@ -133,7 +135,18 @@ public class JFrameTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void registrarseTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseTorneoActionPerformed
-        // TODO add your handling code here:
+        boolean inscrito = false;
+        for (int i = 0; i < liga.getJugador().getTorneos().size();i++)
+            if (liga.getTorneoActual() == liga.getJugador().getTorneos().get(i)){
+                inscrito = true;
+                JOptionPane.showMessageDialog(null, "El usuario ya está inscrito al torneo.");
+
+            }
+        if (inscrito == false){
+            liga.getJugador().addTorneo(liga.getTorneoActual());
+            liga.getTorneoActual().addJugador(liga.getJugador());
+            JOptionPane.showMessageDialog(null, "Se ha inscrito correctamente al torneo.");
+        }
     }//GEN-LAST:event_registrarseTorneoActionPerformed
 
                     

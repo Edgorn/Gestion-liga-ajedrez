@@ -18,6 +18,7 @@ public class LigaAjedrez {
     ArrayList<Club> clubes;
     ArrayList<Torneo> torneos;
     Jugador jugadorActual;
+    Torneo torneo_actual;
     
     public LigaAjedrez() {
         jugadores = new ArrayList<Jugador>();
@@ -55,7 +56,7 @@ public class LigaAjedrez {
         t1.setNombre("Liga Endesa");
         //t1.addClub(c2);
         t1.addJugador(j1);
-        j1.addTorneo(t1);
+        torneos.add(t1);
     }
     
     public String login(String n, String c) {
@@ -120,7 +121,23 @@ public class LigaAjedrez {
         return c;
     }
     
-    /*public Jugador getJugador(){
+    public Jugador getJugador(){
         return jugadorActual;
-    }*/
+    }
+    
+    public ArrayList<Torneo> getTorneos(){
+        return torneos;
+    }
+    
+    public void setTorneoActual(Torneo t){
+        torneo_actual = t;
+    }
+    
+    public Torneo getTorneoActual(){
+        return torneo_actual;
+    }
+    
+    public void inscribirJugador(Torneo t){
+        t.addJugador(jugadorActual);
+    }
 }

@@ -5,7 +5,6 @@
  */
 package Interaces;
 
-import Modelo.Jugador;
 import Modelo.LigaAjedrez;
 import Modelo.Torneo;
 import javax.swing.JFrame;
@@ -113,14 +112,15 @@ public class JFrameJugador extends javax.swing.JFrame {
 
     private void jButtonTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTorneoActionPerformed
         
-        /*Torneo selector = (Torneo)JOptionPane.showInputDialog(this, "Seleccione torneo",
+        Torneo selector = (Torneo)JOptionPane.showInputDialog(this, "Seleccione torneo",
                 "Inscripción a torneo", JOptionPane.QUESTION_MESSAGE, null,
-                jugador.getTorneos().toArray(),"Selecciona torneo");
+                liga.getTorneos().toArray(),"Selecciona torneo");
         if (selector != null){
-            JFrameTorneo torneo = new JFrameTorneo(this,selector);
+            liga.setTorneoActual(selector);
+            JFrameTorneo torneo = new JFrameTorneo(this, liga);
             this.setVisible(false);
             torneo.setVisible(true);
-        }*/
+        }
     }//GEN-LAST:event_jButtonTorneoActionPerformed
 
     private void jMenuItemJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugadorActionPerformed
