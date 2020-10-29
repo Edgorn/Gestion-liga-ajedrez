@@ -149,7 +149,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void jButtonInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInscribirseActionPerformed
-    liga.inscribirJugador();
+        liga.inscribirJugador();
         jButtonInscribirse.setEnabled(!liga.inscrito());
         System.out.println("Jugador inscrito");
     }//GEN-LAST:event_jButtonInscribirseActionPerformed

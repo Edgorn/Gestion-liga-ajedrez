@@ -14,21 +14,20 @@ import java.util.Date;
  */
 public class LigaAjedrez {
     
-    ArrayList<Jugador> jugadores;
+    ArrayList<Usuario> usuarios;
     ArrayList<Club> clubes;
     ArrayList<Torneo> torneos;
     Jugador jugadorActual;
     Torneo torneoActual;
     
     public LigaAjedrez() {
-        jugadores = new ArrayList<Jugador>();
+        usuarios = new ArrayList<Usuario>();
         clubes = new ArrayList<Club>();
         torneos = new ArrayList<Torneo>();
         
         Jugador j1 = new Jugador();
         j1.setNombre("Edgar");
         j1.setContraseña("123");
-        
         
         Jugador j2 = new Jugador();
         j2.setNombre("Vicente");
@@ -38,9 +37,14 @@ public class LigaAjedrez {
         j3.setNombre("Gerard");
         j3.setContraseña("789");
         
-        jugadores.add(j1);
-        jugadores.add(j2);
-        jugadores.add(j3);
+        Administrador admin = new Administrador();
+        admin.setNombre("admin");
+        admin.setContraseña("admin");
+        
+        usuarios.add(j1);
+        usuarios.add(j2);
+        usuarios.add(j3);
+        usuarios.add(admin);
         
         Club c1 = new Club();
         c1.setNombre("ValenciaCA");
@@ -67,10 +71,12 @@ public class LigaAjedrez {
     public String login(String n, String c) {
         String respuesta = "Nadie";
         
-        for(int i=0; i<jugadores.size();i++) {
-            if (jugadores.get(i).getNombre().equals(n) && jugadores.get(i).getContraseña().equals(c)) {
-                respuesta = "jugador";
-                jugadorActual = jugadores.get(i);
+        for(int i=0; i<usuarios.size();i++) {
+            if (usuarios.get(i).login(n, c)) {
+                respuesta = usuarios.get(i).tipo();
+                if (respuesta.equals("Jugador")) {
+                    jugadorActual = (Jugador) usuarios.get(i);
+                }
             }
         }
         
@@ -99,7 +105,7 @@ public class LigaAjedrez {
                     j.setContraseña(contrasenya);
                     j.setNacimiento(nacimiento);
                     j.setClub(clubes.get(i));
-                    jugadores.add(j);
+                    usuarios.add(j);
                     clubes.get(i).addJugador(j);
                 }
             }
@@ -153,12 +159,4 @@ public class LigaAjedrez {
         torneoActual.addJugador(jugadorActual);
         jugadorActual.addTorneo(torneoActual);
     }
-    
-    /*public Torneo getTorneoActual(){
-        return torneoActual;
-    }
-    
-    public void inscribirJugador(Torneo t){
-        t.addJugador(jugadorActual);
-    }*/
 }

@@ -113,16 +113,17 @@ public class JFrameLogin extends javax.swing.JFrame {
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
         String login = liga.login(jTextFieldUsuario.getText(),jTextFieldContraseña.getText());
         
-        if (login.equals("jugador")) {
+        if (login.equals("Jugador")) {
             vaciarCampos();
             JFrameJugador jugador = new JFrameJugador(this, liga);
             this.setVisible(false);
             jugador.setVisible(true);
+        } else if (login.equals("Administrador")){
+            JFrameAdministrador admin = new JFrameAdministrador(this);
+            this.setVisible(false);
+            admin.setVisible(true);
         } else {
             System.out.println("Nombre y contraseña incorrectos");
-            /*JFrameAdministrador admin = new JFrameAdministrador(this);
-            this.setVisible(false);
-            admin.setVisible(true);*/
         }
         
     }//GEN-LAST:event_jButtonIniciarActionPerformed

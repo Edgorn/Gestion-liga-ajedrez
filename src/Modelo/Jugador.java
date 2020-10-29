@@ -12,23 +12,14 @@ import java.util.Date;
  *
  * @author edgar
  */
-public class Jugador {
-    String nombre;
-    String contraseña;
+public class Jugador extends Usuario{
+
     Date nacimiento;
     Club club;
     ArrayList<Torneo> torneos;
 
     public Jugador() {
         torneos = new ArrayList<Torneo>();
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
 
     public void setNacimiento(Date nacimiento) {
@@ -41,14 +32,6 @@ public class Jugador {
     
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getContraseña() {
-        return contraseña;
     }
     
     public ArrayList<Torneo> getTorneos(){
@@ -67,4 +50,8 @@ public class Jugador {
         return respuesta;
     }
     
+    @Override
+    public String tipo() {
+        return "Jugador";
+    }
 }
