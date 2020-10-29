@@ -24,6 +24,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     public JFrameAdministrador(JFrame l, LigaAjedrez la) {
         initComponents();
         frame = l;
+        liga = la;
     }
 
     /**

@@ -6,6 +6,7 @@
 package Interaces;
 
 import Modelo.LigaAjedrez;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -157,10 +158,12 @@ public class JFrameTorneo extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarPartidasActionPerformed
 
     private void anyadirPartidas(){
-        if (liga.listaPartidas().size()>0){
-            String [] lista = new String[liga.listaPartidas().size()];
-            for(int i=0;i<liga.listaPartidas().size();i++)
-                lista[i]=liga.listaPartidas().get(i);
+        ArrayList<String> partidas = liga.listaPartidasJugador();
+        
+        if (partidas.size()>0){
+            String [] lista = new String[partidas.size()];
+            for(int i=0;i<partidas.size();i++)
+                lista[i]=partidas.get(i);
             listaPartidas.setListData(lista);
         }
     }

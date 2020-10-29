@@ -69,7 +69,7 @@ public class Jugador extends Usuario{
         ArrayList <Partida> lista = new ArrayList<Partida>();
         
         for (int i=0; i<partidas.size(); i++) {
-            if (partidas.get(i).esPartida(t)) {
+            if (partidas.get(i).partidaTorneo(t)) {
                 lista.add(partidas.get(i));
             }
         }

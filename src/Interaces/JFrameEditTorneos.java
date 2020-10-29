@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  *
  * @author edgar
  */
-public class JFrameAdminTorneos extends javax.swing.JFrame {
+public class JFrameEditTorneos extends javax.swing.JFrame {
 
     /**
      * Creates new form JFrameAdminJugadores
@@ -21,11 +21,11 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     JFrame frame; 
     LigaAjedrez liga;
     
-    public JFrameAdminTorneos(JFrame f, LigaAjedrez l) {
+    public JFrameEditTorneos(JFrame f, LigaAjedrez l) {
         initComponents();
         frame = f;
         liga = l;
-        anyadirTorneos();
+        anyadirPartidas();
     }
 
     /**
@@ -38,7 +38,7 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jListTorneos = new javax.swing.JList<>();
+        jListPartidas = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
         botonModificar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -47,8 +47,8 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jListTorneos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(jListTorneos);
+        jListPartidas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(jListPartidas);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("NUEVO");
@@ -64,8 +64,8 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton5.setText("ELIMINAR");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setText("TORNEOS");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("PARTIDAS");
 
         jButtonAtras.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonAtras.setText("ATRAS");
@@ -80,38 +80,41 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(botonModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botonModificar)
+                                .addGap(48, 48, 48)
+                                .addComponent(jButton5))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(229, 229, 229)
                 .addComponent(jLabel1)
-                .addGap(174, 174, 174))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(240, 240, 240)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonAtras, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -123,20 +126,21 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        liga.setTorneoActual(jListTorneos.getSelectedValue());
-        JFrameEditTorneos torneo = new JFrameEditTorneos(this, liga);
+        liga.setPartidaActual(jListPartidas.getSelectedValue());
+        
+        JFramePartidas partida = new JFramePartidas(this, liga);
         this.setVisible(false);
-        torneo.setVisible(true);
+        partida.setVisible(true);
     }//GEN-LAST:event_botonModificarActionPerformed
 
-    private void anyadirTorneos(){
-        ArrayList<String> torneos = liga.listaTorneos();
+    private void anyadirPartidas(){
+        ArrayList<String> partidas = liga.listaPartidasTorneo();
         
-        if (torneos.size()>0){
-            String [] lista = new String[torneos.size()];
-            for(int i=0;i<torneos.size();i++)
-                lista[i]=torneos.get(i);
-            jListTorneos.setListData(lista);
+        if (partidas.size()>0){
+            String [] lista = new String[partidas.size()];
+            for(int i=0;i<partidas.size();i++)
+                lista[i]=partidas.get(i);
+            jListPartidas.setListData(lista);
         }
     }
 
@@ -146,7 +150,7 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jListTorneos;
+    private javax.swing.JList<String> jListPartidas;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

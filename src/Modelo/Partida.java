@@ -18,8 +18,6 @@ public class Partida {
     public Partida(){
         
     }
-
-
     
     public String getSede() {
         return sede;
@@ -33,8 +31,7 @@ public class Partida {
         return duracion;
     }
 
-    
-    public String nombrePartida(){
+    public String nombrePartida() {
        return j_local.getNombre()+"-"+j_visitante.getNombre();
     }
     
@@ -62,7 +59,7 @@ public class Partida {
         this.duracion = duracion;
     }
 
-    public boolean esPartida(Torneo torneoActual){
+    public boolean partidaTorneo(Torneo torneoActual){
         boolean respuesta;
         
         if(torneo.getNombre() == torneoActual.getNombre())
@@ -71,6 +68,18 @@ public class Partida {
             respuesta = false;
             
         return respuesta;
+    }
+    
+    public boolean esPartida(String t) {
+        boolean respuesta;
+        
+        if(nombrePartida() == t)
+            respuesta = true;
+        else
+            respuesta = false;
+            
+        return respuesta;
+        
     }
     
 }
