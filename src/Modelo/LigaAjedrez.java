@@ -20,6 +20,7 @@ public class LigaAjedrez {
     ArrayList<Partida> partidas;
     Jugador jugadorActual;
     Torneo torneoActual;
+    Responsable responsableActual;
     
     public LigaAjedrez() {
         usuarios = new ArrayList<Usuario>();
@@ -111,8 +112,20 @@ public class LigaAjedrez {
                     j.setContraseña(contrasenya);
                     j.setNacimiento(nacimiento);
                     j.setClub(clubes.get(i));
-                    usuarios.add(j);
-                    clubes.get(i).addJugador(j);
+                    int anyo = nacimiento.getYear();
+                    
+                    if (anyo>(2020-16)) {
+                        j.setResponsable(responsableActual);
+                        responsableActual=null;
+                    }
+                    
+                    if (j.getResponsable()==null) {
+                        System.out.println("Debes registrar un responsable primero");
+                        j=null;
+                    } else {
+                        usuarios.add(j);
+                        clubes.get(i).addJugador(j);
+                    }
                 }
             }
         }
@@ -124,6 +137,10 @@ public class LigaAjedrez {
         }
         
         return insercion;
+    }
+    
+    public void registrarResponsable(String n, Date fecha) {
+        responsableActual = new Responsable(n, fecha);
     }
     
     public Club clubPorNombre(String nombre) {

@@ -17,6 +17,7 @@ public class Jugador extends Usuario{
     Date nacimiento;
     Club club;
     ArrayList<Torneo> torneos;
+    Responsable responsable;
 
     public Jugador() {
         torneos = new ArrayList<Torneo>();
@@ -32,6 +33,14 @@ public class Jugador extends Usuario{
     
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
+    }
+    
+    public void setResponsable(Responsable r) {
+        responsable = r;
+    }
+    
+    public Responsable getResponsable() {
+        return responsable;
     }
     
     public ArrayList<Torneo> getTorneos(){
