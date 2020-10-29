@@ -51,12 +51,16 @@ public class LigaAjedrez {
         
         Club c1 = new Club();
         c1.setNombre("ValenciaCA");
+        c1.addJugador(j1);
         c1.addJugador(j3);
+        j1.setClub(c1);
         j3.setClub(c1);
         
         
         Club c2 = new Club();
         c2.setNombre("MadridCA");
+        j2.setClub(c2);
+        c2.addJugador(j2);
         
         clubes.add(c1);
         clubes.add(c2);
