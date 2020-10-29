@@ -18,7 +18,7 @@ public class LigaAjedrez {
     ArrayList<Club> clubes;
     ArrayList<Torneo> torneos;
     Jugador jugadorActual;
-    Torneo torneo_actual;
+    Torneo torneoActual;
     
     public LigaAjedrez() {
         jugadores = new ArrayList<Jugador>();
@@ -28,6 +28,7 @@ public class LigaAjedrez {
         Jugador j1 = new Jugador();
         j1.setNombre("Edgar");
         j1.setContraseña("123");
+        
         
         Jugador j2 = new Jugador();
         j2.setNombre("Vicente");
@@ -54,9 +55,13 @@ public class LigaAjedrez {
         
         Torneo t1 = new Torneo();
         t1.setNombre("Liga Endesa");
-        //t1.addClub(c2);
         t1.addJugador(j1);
+        j1.addTorneo(t1);
         torneos.add(t1);
+        
+        Torneo t2 = new Torneo();
+        t2.setNombre("Liga jeje");
+        torneos.add(t2);
     }
     
     public String login(String n, String c) {
@@ -121,23 +126,39 @@ public class LigaAjedrez {
         return c;
     }
     
-    public Jugador getJugador(){
-        return jugadorActual;
+    public ArrayList<String> listaTorneos() {
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<torneos.size(); i++) {
+            lista.add(torneos.get(i).getNombre());
+        }
+        
+        return lista;
     }
     
-    public ArrayList<Torneo> getTorneos(){
-        return torneos;
+    public void setTorneoActual(String t){
+        
+        for (int i=0; i<torneos.size();i++) {
+            if (torneos.get(i).esTorneo(t)) {
+                torneoActual = torneos.get(i);
+            }
+        }
     }
     
-    public void setTorneoActual(Torneo t){
-        torneo_actual = t;
+    public boolean inscrito() {
+        return jugadorActual.inscrito(torneoActual.getNombre());
     }
     
-    public Torneo getTorneoActual(){
-        return torneo_actual;
+    public void inscribirJugador() {
+        torneoActual.addJugador(jugadorActual);
+        jugadorActual.addTorneo(torneoActual);
+    }
+    
+    /*public Torneo getTorneoActual(){
+        return torneoActual;
     }
     
     public void inscribirJugador(Torneo t){
         t.addJugador(jugadorActual);
-    }
+    }*/
 }

@@ -55,5 +55,16 @@ public class Jugador {
         return torneos;
     }
    
+    public boolean inscrito(String t) {
+        boolean respuesta = false;
+        
+        for (int i=0; i<torneos.size(); i++) {
+            if (torneos.get(i).esTorneo(t)) {
+                respuesta = true;
+            }
+        }
+        
+        return respuesta;
+    }
     
 }
