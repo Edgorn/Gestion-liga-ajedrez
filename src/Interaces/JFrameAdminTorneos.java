@@ -5,6 +5,7 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
 import javax.swing.JFrame;
 
 /**
@@ -16,11 +17,13 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     /**
      * Creates new form JFrameAdminJugadores
      */
-    JFrameAdministrador anteriorVentana; 
+    JFrame frame; 
+    LigaAjedrez liga;
     
-    public JFrameAdminTorneos(JFrameAdministrador a) {
+    public JFrameAdminTorneos(JFrame f, LigaAjedrez l) {
         initComponents();
-        anteriorVentana = a;
+        frame = f;
+        liga = l;
     }
 
     /**
@@ -119,11 +122,13 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         this.setVisible(false);
-        anteriorVentana.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        // TODO add your handling code here:
+        JFramePartidas partidas = new JFramePartidas(this);
+        this.setVisible(false);
+        partidas.setVisible(true);
     }//GEN-LAST:event_botonModificarActionPerformed
 
 

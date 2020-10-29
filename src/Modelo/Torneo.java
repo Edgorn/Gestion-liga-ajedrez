@@ -43,10 +43,19 @@ public class Torneo {
         return this.partidas;
     }
     
-    @Override
-    public String toString(){
-        return this.nombre;
+    public String getNombre() {
+        return nombre;
     }
     
-    
+    public boolean esTorneo(String n) {
+        boolean respuesta;
+        
+        if (nombre.equals(n)) {
+            respuesta = true;
+        } else {
+            respuesta = false;
+        }
+        
+        return respuesta;
+    }
 }

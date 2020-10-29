@@ -14,15 +14,19 @@ import java.util.Date;
  */
 public class LigaAjedrez {
     
-    ArrayList<Jugador> jugadores;
+    ArrayList<Usuario> usuarios;
     ArrayList<Club> clubes;
     ArrayList<Torneo> torneos;
+    ArrayList<Partida> partidas;
     Jugador jugadorActual;
+    Torneo torneoActual;
+    Responsable responsableActual;
     
     public LigaAjedrez() {
-        jugadores = new ArrayList<Jugador>();
+        usuarios = new ArrayList<Usuario>();
         clubes = new ArrayList<Club>();
         torneos = new ArrayList<Torneo>();
+        partidas = new ArrayList<Partida>();
         
         Jugador j1 = new Jugador();
         j1.setNombre("Edgar");
@@ -36,14 +40,18 @@ public class LigaAjedrez {
         j3.setNombre("Gerard");
         j3.setContraseña("789");
         
-        jugadores.add(j1);
-        jugadores.add(j2);
-        jugadores.add(j3);
+        Administrador admin = new Administrador();
+        admin.setNombre("admin");
+        admin.setContraseña("admin");
+        
+        usuarios.add(j1);
+        usuarios.add(j2);
+        usuarios.add(j3);
+        usuarios.add(admin);
         
         Club c1 = new Club();
         c1.setNombre("ValenciaCA");
-        c1.addJugador(j3);
-        j3.setClub(c1);
+        //c1.addJugador(j1);
         
         
         Club c2 = new Club();
@@ -54,18 +62,28 @@ public class LigaAjedrez {
         
         Torneo t1 = new Torneo();
         t1.setNombre("Liga Endesa");
-        //t1.addClub(c2);
         t1.addJugador(j1);
         j1.addTorneo(t1);
+        torneos.add(t1);
+        
+        Torneo t2 = new Torneo();
+        t2.setNombre("Liga jeje");
+        torneos.add(t2);
+        
+        Partida p1 = new Partida();
+        p1.setJ_local(j1);
+        p1.setJ_visitante(j2);
     }
     
     public String login(String n, String c) {
         String respuesta = "Nadie";
         
-        for(int i=0; i<jugadores.size();i++) {
-            if (jugadores.get(i).getNombre().equals(n) && jugadores.get(i).getContraseña().equals(c)) {
-                respuesta = "jugador";
-                jugadorActual = jugadores.get(i);
+        for(int i=0; i<usuarios.size();i++) {
+            if (usuarios.get(i).login(n, c)) {
+                respuesta = usuarios.get(i).tipo();
+                if (respuesta.equals("Jugador")) {
+                    jugadorActual = (Jugador) usuarios.get(i);
+                }
             }
         }
         
@@ -94,8 +112,20 @@ public class LigaAjedrez {
                     j.setContraseña(contrasenya);
                     j.setNacimiento(nacimiento);
                     j.setClub(clubes.get(i));
-                    jugadores.add(j);
-                    clubes.get(i).addJugador(j);
+                    int anyo = nacimiento.getYear();
+                    
+                    if (anyo>(2020-16)) {
+                        j.setResponsable(responsableActual);
+                        responsableActual=null;
+                    }
+                    
+                    if (j.getResponsable()==null) {
+                        System.out.println("Debes registrar un responsable primero");
+                        j=null;
+                    } else {
+                        usuarios.add(j);
+                        clubes.get(i).addJugador(j);
+                    }
                 }
             }
         }
@@ -107,6 +137,10 @@ public class LigaAjedrez {
         }
         
         return insercion;
+    }
+    
+    public void registrarResponsable(String n, Date fecha) {
+        responsableActual = new Responsable(n, fecha);
     }
     
     public Club clubPorNombre(String nombre) {
@@ -121,12 +155,36 @@ public class LigaAjedrez {
         return c;
     }
     
+    public ArrayList<String> listaTorneos() {
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<torneos.size(); i++) {
+            lista.add(torneos.get(i).getNombre());
+        }
+        
+        return lista;
+    }
+    
+    public void setTorneoActual(String t){
+        
+        for (int i=0; i<torneos.size();i++) {
+            if (torneos.get(i).esTorneo(t)) {
+                torneoActual = torneos.get(i);
+            }
+        }
+    }
+    
+    public boolean inscrito() {
+        return jugadorActual.inscrito(torneoActual.getNombre());
+    }
+    
+    public void inscribirJugador() {
+        torneoActual.addJugador(jugadorActual);
+        jugadorActual.addTorneo(torneoActual);
+    }
+    
     public String getClub()
     {
         return jugadorActual.getClub();
     }
-    
-    /*public Jugador getJugador(){
-        return jugadorActual;
-    }*/
 }

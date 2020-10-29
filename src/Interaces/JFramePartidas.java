@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author gerar
@@ -14,10 +16,10 @@ public class JFramePartidas extends javax.swing.JFrame {
     /**
      * Creates new form JFrameTorneo
      */
-    JFrameTorneo torneo;
-    public JFramePartidas(JFrameTorneo t) {
+    JFrame frame;
+    public JFramePartidas(JFrame t) {
         initComponents();
-        torneo = t;
+        frame = t;
     }
 
     /**
@@ -29,50 +31,41 @@ public class JFramePartidas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelLocal_nom = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelVisitante_nom = new javax.swing.JLabel();
+        jLabelFecha = new javax.swing.JLabel();
+        jLabelFecha_valor = new javax.swing.JLabel();
+        jLabelDuracion = new javax.swing.JLabel();
+        jLabelDuracion_valor = new javax.swing.JLabel();
+        jLabelSede = new javax.swing.JLabel();
+        jLabelSede_nom = new javax.swing.JLabel();
         botonAtras = new javax.swing.JButton();
+        jLabelGanador = new javax.swing.JLabel();
+        jLabelGanador_nom = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Partida1", "Partida2", "Partida3" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jLabelLocal_nom.setText("Rogelio");
 
-        jLabel1.setText("Rogelio");
+        jLabel2.setText("Jugador local:");
 
-        jLabel2.setText("Rival de la partida:");
+        jLabel3.setText("Jugador visitante:");
 
-        jLabel3.setText("Ganador de la partida:");
+        jLabelVisitante_nom.setText("Gerard");
 
-        jLabel4.setText("Gerard");
+        jLabelFecha.setText("Fecha de la partida:");
 
-        jLabel5.setText("Fecha de la partida:");
+        jLabelFecha_valor.setText("08/10/2020");
 
-        jLabel6.setText("08/10/2020");
+        jLabelDuracion.setText("Duración de la partida:");
 
-        jLabel7.setText("Duración de la partida:");
+        jLabelDuracion_valor.setText("24:05");
 
-        jLabel8.setText("24:05");
+        jLabelSede.setText("Sede de la partida:");
 
-        jLabel9.setText("Seleccione la partida que desees consultar:");
-
-        jLabel10.setText("Sede de la partida:");
-
-        jLabel11.setText("Valencia");
+        jLabelSede_nom.setText("Valencia");
 
         botonAtras.setText("Atrás");
         botonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +74,10 @@ public class JFramePartidas extends javax.swing.JFrame {
             }
         });
 
+        jLabelGanador.setText("Ganador:");
+
+        jLabelGanador_nom.setText("Gerard");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,66 +85,62 @@ public class JFramePartidas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelFecha)
+                                    .addComponent(jLabel3)
                                     .addComponent(jLabel2)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabelGanador))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6)))
+                                    .addComponent(jLabelFecha_valor)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabelLocal_nom)
+                                        .addComponent(jLabelVisitante_nom))
+                                    .addComponent(jLabelGanador_nom)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(jLabelDuracion)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
+                                .addComponent(jLabelDuracion_valor))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
+                                .addComponent(jLabelSede)
                                 .addGap(39, 39, 39)
-                                .addComponent(jLabel11))))
+                                .addComponent(jLabelSede_nom))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(134, 134, 134)
                         .addComponent(botonAtras)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabelLocal_nom))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(24, 24, 24)
+                    .addComponent(jLabelVisitante_nom))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabelGanador)
+                    .addComponent(jLabelGanador_nom))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabelFecha)
+                    .addComponent(jLabelFecha_valor))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                    .addComponent(jLabelDuracion)
+                    .addComponent(jLabelDuracion_valor))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSede_nom)
+                    .addComponent(jLabelSede))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonAtras)
                 .addContainerGap())
         );
@@ -155,13 +148,9 @@ public class JFramePartidas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         this.setVisible(false);
-        torneo.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     /**
@@ -171,17 +160,17 @@ public class JFramePartidas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtras;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelDuracion;
+    private javax.swing.JLabel jLabelDuracion_valor;
+    private javax.swing.JLabel jLabelFecha;
+    private javax.swing.JLabel jLabelFecha_valor;
+    private javax.swing.JLabel jLabelGanador;
+    private javax.swing.JLabel jLabelGanador_nom;
+    private javax.swing.JLabel jLabelLocal_nom;
+    private javax.swing.JLabel jLabelSede;
+    private javax.swing.JLabel jLabelSede_nom;
+    private javax.swing.JLabel jLabelVisitante_nom;
     // End of variables declaration//GEN-END:variables
 }

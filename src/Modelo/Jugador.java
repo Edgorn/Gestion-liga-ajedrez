@@ -12,23 +12,15 @@ import java.util.Date;
  *
  * @author edgar
  */
-public class Jugador {
-    String nombre;
-    String contraseña;
+public class Jugador extends Usuario{
+
     Date nacimiento;
     Club club;
     ArrayList<Torneo> torneos;
+    Responsable responsable;
 
     public Jugador() {
         torneos = new ArrayList<Torneo>();
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
     }
 
     public void setNacimiento(Date nacimiento) {
@@ -42,23 +34,37 @@ public class Jugador {
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
     }
-
-    public String getNombre() {
-        return nombre;
+    
+    public void setResponsable(Responsable r) {
+        responsable = r;
     }
-
-    public String getContraseña() {
-        return contraseña;
+    
+    public Responsable getResponsable() {
+        return responsable;
     }
     
     public ArrayList<Torneo> getTorneos(){
         return torneos;
     }
+   
+    public boolean inscrito(String t) {
+        boolean respuesta = false;
+        
+        for (int i=0; i<torneos.size(); i++) {
+            if (torneos.get(i).esTorneo(t)) {
+                respuesta = true;
+            }
+        }
+        
+        return respuesta;
+    }
     
-    public String getClub()
-    {
+    @Override
+    public String tipo() {
+        return "Jugador";
+    }
+    
+    public String getClub() {
         return club.getNombre();
     }
-   
-    
 }

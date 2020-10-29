@@ -254,7 +254,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
                 this.setVisible(false);
                 frame.setVisible(true);
             } else {
-                System.out.println("Error: El Jugador registrado ya existe");
+                System.out.println("Error: No se ha podido registrar al jugador");
             }
         } else {
             System.out.println("Error: Las contraseñas no coinciden");
@@ -283,10 +283,9 @@ public class JFrameRegistrar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void jButtonResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResponsableActionPerformed
-        JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
+        JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this, liga);
         this.setVisible(false);
         responsable.setVisible(true);
-        
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
     private void jComboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesActionPerformed

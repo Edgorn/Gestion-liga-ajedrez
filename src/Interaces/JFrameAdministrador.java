@@ -5,6 +5,9 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
+import javax.swing.JFrame;
+
 /**
  *
  * @author gerar
@@ -15,14 +18,12 @@ public class JFrameAdministrador extends javax.swing.JFrame {
      * Creates new form JFrameAdministrador
      */
     
-    JFrameAdminJugadores jugador;
-    JFrameAdminClubes clubes;
-    JFrameAdminTorneos torneos;
-    JFrameInfo info;
-    JFrameLogin login;
-    public JFrameAdministrador(JFrameLogin l) {
+    JFrame frame;
+    LigaAjedrez liga;
+    
+    public JFrameAdministrador(JFrame l, LigaAjedrez la) {
         initComponents();
-        login = l;
+        frame = l;
     }
 
     /**
@@ -123,24 +124,24 @@ public class JFrameAdministrador extends javax.swing.JFrame {
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         this.setVisible(false);
-        login.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
 
     private void botonJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugadoresActionPerformed
-        this.setVisible(false);
+        /*this.setVisible(false);
         jugador = new JFrameAdminJugadores(this);
-        jugador.setVisible(true);
+        jugador.setVisible(true);*/
     }//GEN-LAST:event_botonJugadoresActionPerformed
 
     private void botonClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClubesActionPerformed
-         this.setVisible(false);
+         /*this.setVisible(false);
          clubes = new JFrameAdminClubes(this);
-         clubes.setVisible(true);
+         clubes.setVisible(true);*/
     }//GEN-LAST:event_botonClubesActionPerformed
 
     private void botonTorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTorneosActionPerformed
+        JFrameAdminTorneos torneos = new JFrameAdminTorneos(this, liga);
         this.setVisible(false);
-        torneos = new JFrameAdminTorneos(this);
         torneos.setVisible(true);
     }//GEN-LAST:event_botonTorneosActionPerformed
 

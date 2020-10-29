@@ -5,8 +5,7 @@
  */
 package Interaces;
 
-import Modelo.Partida;
-import Modelo.Torneo;
+import Modelo.LigaAjedrez;
 import javax.swing.JFrame;
 
 /**
@@ -20,13 +19,13 @@ public class JFrameTorneo extends javax.swing.JFrame {
      * Creates new form JFrameTorneo
      */
     JFrame frame;
-    Torneo torneo;
-    JFrameEditPartidas partidas;
-    public JFrameTorneo(JFrame ju,Torneo t) {
+    LigaAjedrez liga;
+    
+    public JFrameTorneo(JFrame ju,LigaAjedrez la) {
         initComponents();
         frame = ju;
-        torneo = t;
-        
+        liga = la;
+        jButtonInscribirse.setEnabled(!liga.inscrito());
     }
 
     /**
@@ -38,7 +37,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        registrarseTorneo = new javax.swing.JButton();
+        jButtonInscribirse = new javax.swing.JButton();
         etiqTitulo = new javax.swing.JLabel();
         botonAtras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -48,11 +47,11 @@ public class JFrameTorneo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        registrarseTorneo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        registrarseTorneo.setText("INSCRIBIRSE");
-        registrarseTorneo.addActionListener(new java.awt.event.ActionListener() {
+        jButtonInscribirse.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jButtonInscribirse.setText("INSCRIBIRSE");
+        jButtonInscribirse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarseTorneoActionPerformed(evt);
+                jButtonInscribirseActionPerformed(evt);
             }
         });
 
@@ -117,7 +116,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
                         .addGap(214, 214, 214)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(modificarPartidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(registrarseTorneo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonInscribirse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,7 +125,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(etiqTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registrarseTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonInscribirse, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,14 +148,16 @@ public class JFrameTorneo extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
-    private void registrarseTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseTorneoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registrarseTorneoActionPerformed
+    private void jButtonInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInscribirseActionPerformed
+        liga.inscribirJugador();
+        jButtonInscribirse.setEnabled(!liga.inscrito());
+        System.out.println("Jugador inscrito");
+    }//GEN-LAST:event_jButtonInscribirseActionPerformed
 
     private void modificarPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPartidasActionPerformed
-        this.setVisible(false);
-        partidas = new JFrameEditPartidas();
-        partidas.setVisible(true);
+        //this.setVisible(false);
+        //partidas = new JFrameEditPartidas();
+        //partidas.setVisible(true);
     }//GEN-LAST:event_modificarPartidasActionPerformed
 
                     
@@ -164,10 +165,10 @@ public class JFrameTorneo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAtras;
     private javax.swing.JLabel etiqTitulo;
+    private javax.swing.JButton jButtonInscribirse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPartidas;
     private javax.swing.JButton modificarPartidas;
-    private javax.swing.JButton registrarseTorneo;
     // End of variables declaration//GEN-END:variables
 }
