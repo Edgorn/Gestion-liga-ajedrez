@@ -119,7 +119,8 @@ public class JFrameLogin extends javax.swing.JFrame {
             this.setVisible(false);
             jugador.setVisible(true);
         } else if (login.equals("Administrador")){
-            JFrameAdministrador admin = new JFrameAdministrador(this);
+            vaciarCampos();
+            JFrameAdministrador admin = new JFrameAdministrador(this, liga);
             this.setVisible(false);
             admin.setVisible(true);
         } else {
