@@ -10,23 +10,22 @@ package Modelo;
  * @author vicen
  */
 public class Partida {
-    String j_local,j_visitante, sede, fecha;
+    Jugador j_local,j_visitante;
+    String sede, fecha;
     String duracion;        //en minutos
-    Club local, visitante;
     
     public Partida(){
         
     }
-    
-    
-    public String getJ_local() {
-        return j_local;
+
+    public void setJ_local(Jugador j_local) {
+        this.j_local = j_local;
     }
 
-    public String getJ_visitante() {
-        return j_visitante;
+    public void setJ_visitante(Jugador j_visitante) {
+        this.j_visitante = j_visitante;
     }
-
+    
     public String getSede() {
         return sede;
     }
@@ -39,21 +38,7 @@ public class Partida {
         return duracion;
     }
 
-    public Club getLocal() {
-        return local;
-    }
 
-    public Club getVisitante() {
-        return visitante;
-    }
-
-    public void setJ_local(String j_local) {
-        this.j_local = j_local;
-    }
-
-    public void setJ_visitante(String j_visitante) {
-        this.j_visitante = j_visitante;
-    }
 
     public void setSede(String sede) {
         this.sede = sede;
@@ -67,13 +52,6 @@ public class Partida {
         this.duracion = duracion;
     }
 
-    public void setLocal(Club local) {
-        this.local = local;
-    }
-
-    public void setVisitante(Club visitante) {
-        this.visitante = visitante;
-    }
     
     
 }
