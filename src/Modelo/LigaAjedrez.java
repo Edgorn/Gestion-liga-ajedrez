@@ -51,7 +51,8 @@ public class LigaAjedrez {
         
         Club c1 = new Club();
         c1.setNombre("ValenciaCA");
-        //c1.addJugador(j1);
+        c1.addJugador(j3);
+        j3.setClub(c1);
         
         
         Club c2 = new Club();
@@ -185,6 +186,15 @@ public class LigaAjedrez {
     
     public String getClub()
     {
-        return jugadorActual.getClub();
+        return jugadorActual.getClub().getNombre();
+    }
+    
+    public void cambiarClub(String club)
+    {
+        jugadorActual.getClub().quitarJugador(jugadorActual);
+        jugadorActual.setClub(clubPorNombre(club));
+        clubPorNombre(club).addJugador(jugadorActual);
+        /*this.clubPorNombre(club);
+        jugadorActual.getClub();*/
     }
 }

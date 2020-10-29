@@ -28,6 +28,7 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         initComponents();
         liga = la;
         textoClub.setText(liga.getClub());
+       
     }
 
     /**
@@ -201,15 +202,15 @@ public class JFrameEditJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
 
-
     private void cambiarClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClubActionPerformed
-        ArrayList<String> clubes = liga.listaClubes();
         
-        for (int i=0; i<clubes.size(); i++) {
-            clubesBox.addItem(clubes.get(i));
-        }
-        JOptionPane.showMessageDialog(null, clubesBox,"Escoge el nuevo club: ",JOptionPane.QUESTION_MESSAGE);
-               
+       String selector = (String)JOptionPane.showInputDialog(this, "Selecciona el nuevo club","Cambiar club jugador", JOptionPane.QUESTION_MESSAGE, null, liga.listaClubes().toArray(),"Selecciona club: ");
+       
+       if(selector!=null)
+       {
+            liga.cambiarClub(selector);
+            textoClub.setText(liga.getClub());
+       }
         
     }//GEN-LAST:event_cambiarClubActionPerformed
 

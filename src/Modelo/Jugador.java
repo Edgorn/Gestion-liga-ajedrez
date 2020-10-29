@@ -64,7 +64,7 @@ public class Jugador extends Usuario{
         return "Jugador";
     }
     
-    public String getClub() {
-        return club.getNombre();
+    public Club getClub() {
+        return club;
     }
 }

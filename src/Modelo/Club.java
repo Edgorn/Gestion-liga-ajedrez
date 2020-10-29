@@ -29,6 +29,17 @@ public class Club {
         jugadores.add(jugador);
     }
     
+    public void quitarJugador(Jugador jugador)
+    {
+        for(int i=0; i<jugadores.size();i++)
+        {
+            if(jugadores.get(i) == jugador)
+            {
+                jugadores.remove(i);
+            }
+        }
+    }
+    
     public void addTorneo(Torneo torneo) {
         torneos.add(torneo);
     }
