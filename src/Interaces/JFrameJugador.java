@@ -15,11 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author vicen
  */
+
 public class JFrameJugador extends javax.swing.JFrame {
 
     JFrame login;
     LigaAjedrez liga;
-    
+    JFrameEditJugador jugador;
     public JFrameJugador(JFrame l, LigaAjedrez la) {
         login = l;
         liga = la;
@@ -134,6 +135,10 @@ public class JFrameJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuModificarActionPerformed
 
 
+    public void setClubJugador(String setClub)
+    {
+        jugador.setClubJugador(setClub);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonTorneo;

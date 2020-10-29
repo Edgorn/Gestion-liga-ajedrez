@@ -16,6 +16,7 @@ import javax.swing.JFrame;
  *
  * @author edgar
  */
+
 public class JFrameRegistrar extends javax.swing.JFrame {
 
     /**
@@ -24,7 +25,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
     JFrame frame;
     LigaAjedrez liga;
     int anyo = 2020;
-    
+    JFrameJugador editarJugador;
     public JFrameRegistrar(JFrame l, LigaAjedrez la) {
         initComponents();
         frame = l;
@@ -54,7 +55,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldCon = new javax.swing.JTextField();
         jTextFieldCon2 = new javax.swing.JTextField();
-        jComboBoxClub = new javax.swing.JComboBox<>();
+        clubComboBox = new javax.swing.JComboBox<>();
         jComboBoxDia = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jComboBoxMes = new javax.swing.JComboBox<>();
@@ -125,7 +126,12 @@ public class JFrameRegistrar extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxClub.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clubComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        clubComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clubComboBoxActionPerformed(evt);
+            }
+        });
 
         jComboBoxDia.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
@@ -175,7 +181,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
                             .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(jTextFieldCon2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(jTextFieldCon, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(jComboBoxClub, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(clubComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jComboBoxDia, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -221,7 +227,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBoxClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clubComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegistrar)
@@ -240,7 +246,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         int mes = jComboBoxMes.getSelectedIndex();
         int any = Integer.parseInt(jComboBoxAnyo.getSelectedItem()+"");
         Date fecha = new Date(any, mes, dia);
-        String club = jComboBoxClub.getSelectedItem()+"";
+        String club = clubComboBox.getSelectedItem()+"";
         
         if (contrasenya.equals(contrasenyaRepetida)) {
             if (liga.registrarJugador(nombre, contrasenya, fecha, club)) {
@@ -302,6 +308,10 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBoxAnyoItemStateChanged
 
+    private void clubComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clubComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clubComboBoxActionPerformed
+
     private void iniciarFecha() {
         for (int i=0; i<100; i++)
             jComboBoxAnyo.addItem(anyo-i+"");
@@ -358,17 +368,22 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         ArrayList<String> clubes = liga.listaClubes();
         
         for (int i=0; i<clubes.size(); i++) {
-            jComboBoxClub.addItem(clubes.get(i));
+            clubComboBox.addItem(clubes.get(i));
         }
     }
     
+    public void setClubJugador()
+    {
+        String setClub = clubComboBox.getSelectedItem().toString();
+        editarJugador.setClubJugador(setClub);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> clubComboBox;
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonResponsable;
     private javax.swing.JComboBox<String> jComboBoxAnyo;
-    private javax.swing.JComboBox<String> jComboBoxClub;
     private javax.swing.JComboBox<String> jComboBoxDia;
     private javax.swing.JComboBox<String> jComboBoxMes;
     private javax.swing.JLabel jLabel1;

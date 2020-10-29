@@ -49,8 +49,8 @@
                                       <Component id="jLabelClub" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jButton1" pref="139" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldClub" max="32767" attributes="0"/>
+                                          <Component id="cambiarClub" pref="139" max="32767" attributes="0"/>
+                                          <Component id="textoClub" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -89,7 +89,7 @@
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelClub" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldClub" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textoClub" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -97,7 +97,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldFecha" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelFecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cambiarClub" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonResponsable" min="-2" max="-2" attributes="0"/>
@@ -175,15 +175,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonResponsableActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldClub">
+    <Component class="javax.swing.JTextField" name="textoClub">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoClubActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="cambiarClub">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cambiar Club"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cambiarClubActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
