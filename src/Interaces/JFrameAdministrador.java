@@ -41,6 +41,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         botonJugadores = new javax.swing.JButton();
         botonClubes = new javax.swing.JButton();
         botonTorneos = new javax.swing.JButton();
+        botonPartidas = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -81,16 +82,18 @@ public class JFrameAdministrador extends javax.swing.JFrame {
             }
         });
 
+        botonPartidas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        botonPartidas.setText("PARTIDAS");
+        botonPartidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPartidasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -98,11 +101,18 @@ public class JFrameAdministrador extends javax.swing.JFrame {
                         .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(278, 278, 278)
-                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Salir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(198, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonPartidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonClubes, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,9 +122,11 @@ public class JFrameAdministrador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonPartidas, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
                 .addComponent(Salir)
                 .addGap(23, 23, 23))
         );
@@ -145,6 +157,12 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         torneos.setVisible(true);
     }//GEN-LAST:event_botonTorneosActionPerformed
 
+    private void botonPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPartidasActionPerformed
+        JFrameAdminPartidas partidas = new JFrameAdminPartidas(liga);
+        this.setVisible(false);
+        partidas.setVisible(true);
+    }//GEN-LAST:event_botonPartidasActionPerformed
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -152,6 +170,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton Salir;
     private javax.swing.JButton botonClubes;
     private javax.swing.JButton botonJugadores;
+    private javax.swing.JButton botonPartidas;
     private javax.swing.JButton botonTorneos;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
