@@ -126,7 +126,9 @@ public class JFrameAdminTorneos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        // TODO add your handling code here:
+        JFramePartidas partidas = new JFramePartidas(this);
+        this.setVisible(false);
+        partidas.setVisible(true);
     }//GEN-LAST:event_botonModificarActionPerformed
 
 
