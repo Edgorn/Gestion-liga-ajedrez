@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vicen
@@ -39,8 +41,8 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         jLabelFecha = new javax.swing.JLabel();
         jTextFieldFecha = new javax.swing.JTextField();
         jButtonResponsable = new javax.swing.JButton();
-        jTextFieldClub = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        textoClub = new javax.swing.JTextField();
+        cambiarClub = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modificar datos de jugador");
@@ -86,9 +88,19 @@ public class JFrameEditJugador extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldClub.setEnabled(false);
+        textoClub.setEnabled(false);
+        textoClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoClubActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Cambiar Club");
+        cambiarClub.setText("Cambiar Club");
+        cambiarClub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarClubActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,8 +129,8 @@ public class JFrameEditJugador extends javax.swing.JFrame {
                                         .addComponent(jLabelClub)
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldClub)))))
+                                            .addComponent(cambiarClub, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                            .addComponent(textoClub)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jButtonResponsable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -144,12 +156,12 @@ public class JFrameEditJugador extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelClub)
-                            .addComponent(jTextFieldClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textoClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFecha)
-                    .addComponent(jButton1))
+                    .addComponent(cambiarClub))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonResponsable)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
@@ -180,9 +192,50 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         responsable.setVisible(true);*/
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
+    private void cambiarClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClubActionPerformed
+        String clubViejo = textoClub.getText();
+        String clubNuevo = JOptionPane.showInputDialog(null,"Cual es el nuevo club?");
+        
+        switch(clubNuevo)
+        {
+            case "ValenciaCA":
+                if(clubNuevo == clubViejo)
+                {
+                    JOptionPane.showMessageDialog(null, "Este equipo es el mismo que tienes actualmente.");
+                }
+                else
+                {
+                    textoClub.setText(clubNuevo);
+                }
+                break;
+                
+            case "MadridCA":
+                if(clubNuevo == clubViejo)
+                {
+                    JOptionPane.showMessageDialog(null, "Este equipo es el mismo que tienes actualmente.");
+                }
+                else
+                {
+                    textoClub.setText(clubNuevo);
+                }
+                break;
+                
+            default:
+                JOptionPane.showMessageDialog(null,"Este club no coincide con ningun club registrado");
+        }
+        
+    }//GEN-LAST:event_cambiarClubActionPerformed
 
+    private void textoClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoClubActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoClubActionPerformed
+
+    public void setClubJugador(String setClub)
+    {
+        textoClub.setText(setClub);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton cambiarClub;
     private javax.swing.JButton jButtonAtras;
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonResponsable;
@@ -191,8 +244,8 @@ public class JFrameEditJugador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextFieldClub;
     private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldNom;
+    private javax.swing.JTextField textoClub;
     // End of variables declaration//GEN-END:variables
 }

@@ -45,6 +45,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPartidas = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        modificarPartidas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +87,14 @@ public class JFrameTorneo extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Listado de partidas");
 
+        modificarPartidas.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        modificarPartidas.setText("MODIFICAR PARTIDAS ");
+        modificarPartidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarPartidasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,8 +115,10 @@ public class JFrameTorneo extends javax.swing.JFrame {
                         .addGap(134, 134, 134)
                         .addComponent(etiqTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(registrarseTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(214, 214, 214)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(modificarPartidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registrarseTorneo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(130, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,8 +130,13 @@ public class JFrameTorneo extends javax.swing.JFrame {
                 .addComponent(registrarseTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(modificarPartidas, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(botonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -149,6 +165,12 @@ public class JFrameTorneo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_registrarseTorneoActionPerformed
 
+    private void modificarPartidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPartidasActionPerformed
+        //this.setVisible(false);
+        //partidas = new JFrameEditPartidas();
+        //partidas.setVisible(true);
+    }//GEN-LAST:event_modificarPartidasActionPerformed
+
                     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -157,6 +179,7 @@ public class JFrameTorneo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPartidas;
+    private javax.swing.JButton modificarPartidas;
     private javax.swing.JButton registrarseTorneo;
     // End of variables declaration//GEN-END:variables
 }
