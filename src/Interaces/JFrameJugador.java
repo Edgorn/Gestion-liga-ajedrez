@@ -125,7 +125,7 @@ public class JFrameJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonTorneoActionPerformed
 
     private void jMenuItemJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugadorActionPerformed
-        JFrameEditJugador edit = new JFrameEditJugador(this);
+        JFrameEditJugador edit = new JFrameEditJugador(this, liga);
         this.setVisible(false);
         edit.setVisible(true);
     }//GEN-LAST:event_jMenuItemJugadorActionPerformed

@@ -54,6 +54,11 @@ public class Jugador {
     public ArrayList<Torneo> getTorneos(){
         return torneos;
     }
+    
+    public String getClub()
+    {
+        return club.getNombre();
+    }
    
     
 }

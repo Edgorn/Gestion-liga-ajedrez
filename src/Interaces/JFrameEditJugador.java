@@ -5,6 +5,9 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +17,17 @@ import javax.swing.JOptionPane;
 public class JFrameEditJugador extends javax.swing.JFrame {
     
     JFrameJugador jugador;
+    LigaAjedrez liga;
+    JComboBox clubesBox;
+    
     /**
      * Creates new form JFrameEditJugador
      */
-    public JFrameEditJugador(JFrameJugador j) {
+    public JFrameEditJugador(JFrameJugador j, LigaAjedrez la) {
         jugador = j;
         initComponents();
+        liga = la;
+        textoClub.setText(liga.getClub());
     }
 
     /**
@@ -192,37 +200,16 @@ public class JFrameEditJugador extends javax.swing.JFrame {
         responsable.setVisible(true);*/
     }//GEN-LAST:event_jButtonResponsableActionPerformed
 
+
+
     private void cambiarClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClubActionPerformed
-        String clubViejo = textoClub.getText();
-        String clubNuevo = JOptionPane.showInputDialog(null,"Cual es el nuevo club?");
+        ArrayList<String> clubes = liga.listaClubes();
         
-        switch(clubNuevo)
-        {
-            case "ValenciaCA":
-                if(clubNuevo == clubViejo)
-                {
-                    JOptionPane.showMessageDialog(null, "Este equipo es el mismo que tienes actualmente.");
-                }
-                else
-                {
-                    textoClub.setText(clubNuevo);
-                }
-                break;
-                
-            case "MadridCA":
-                if(clubNuevo == clubViejo)
-                {
-                    JOptionPane.showMessageDialog(null, "Este equipo es el mismo que tienes actualmente.");
-                }
-                else
-                {
-                    textoClub.setText(clubNuevo);
-                }
-                break;
-                
-            default:
-                JOptionPane.showMessageDialog(null,"Este club no coincide con ningun club registrado");
+        for (int i=0; i<clubes.size(); i++) {
+            clubesBox.addItem(clubes.get(i));
         }
+        JOptionPane.showMessageDialog(null, clubesBox,"Escoge el nuevo club: ",JOptionPane.QUESTION_MESSAGE);
+               
         
     }//GEN-LAST:event_cambiarClubActionPerformed
 
