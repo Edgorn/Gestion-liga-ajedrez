@@ -32,7 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="botonJugadores" min="-2" pref="245" max="-2" attributes="0"/>
+              <Component id="JButtonJugadores" min="-2" pref="245" max="-2" attributes="0"/>
               <EmptySpace pref="174" max="32767" attributes="0"/>
               <Component id="botonClubes" min="-2" pref="245" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -63,7 +63,7 @@
               <Component id="EtiquetaAdministrador" pref="122" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonJugadores" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="JButtonJugadores" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
                   <Component id="botonClubes" alignment="3" min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -95,7 +95,7 @@
         <Property name="text" type="java.lang.String" value="ADMINISTRADOR DEL SISTEMA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botonJugadores">
+    <Component class="javax.swing.JButton" name="JButtonJugadores">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="0"/>
@@ -103,7 +103,7 @@
         <Property name="text" type="java.lang.String" value="JUGADORES"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonJugadoresActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonJugadoresActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonClubes">

@@ -49,4 +49,16 @@ public class Usuario {
         return "usuario";
     }
     
+    public boolean esUsuario(String n) {
+        boolean respuesta;
+        
+        if (nombre.equals(n)) {
+            respuesta = true;
+        } else {
+            respuesta = false;
+        }
+        
+        return respuesta;
+    }
+    
 }

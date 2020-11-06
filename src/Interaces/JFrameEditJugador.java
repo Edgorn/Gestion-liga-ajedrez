@@ -8,6 +8,7 @@ package Interaces;
 import Modelo.LigaAjedrez;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,14 +17,14 @@ import javax.swing.JOptionPane;
  */
 public class JFrameEditJugador extends javax.swing.JFrame {
     
-    JFrameJugador jugador;
+    JFrame jugador;
     LigaAjedrez liga;
     JComboBox clubesBox;
     
     /**
      * Creates new form JFrameEditJugador
      */
-    public JFrameEditJugador(JFrameJugador j, LigaAjedrez la) {
+    public JFrameEditJugador(JFrame j, LigaAjedrez la) {
         jugador = j;
         initComponents();
         liga = la;

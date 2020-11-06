@@ -5,6 +5,8 @@
  */
 package Interaces;
 
+import Modelo.LigaAjedrez;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -17,11 +19,13 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
      * Creates new form JFrameAdminJugadores
      */
     
-    JFrameAdministrador anteriorVentana; 
+    JFrame frame; 
+    LigaAjedrez liga;
     
-    public JFrameAdminJugadores(JFrameAdministrador a) {
+    public JFrameAdminJugadores(JFrame f, LigaAjedrez l) {
         initComponents();
-        anteriorVentana = a;
+        frame = f;
+        liga = l;
     }
 
     /**
@@ -35,27 +39,40 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListJugadores = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonNuevo = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jListJugadores.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jListJugadores.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Jugador 1", "Jugador 2", "Jugador 3", "Jugador 4" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jListJugadores);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("NUEVO");
+        jButtonNuevo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonNuevo.setText("NUEVO");
+        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("MODIFICAR");
+        jButtonModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonModificar.setText("MODIFICAR");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton5.setText("ELIMINAR");
@@ -82,9 +99,9 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(53, 53, 53)
-                                .addComponent(jButton2)
+                                .addComponent(jButtonModificar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -92,7 +109,7 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +120,9 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonModificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -116,15 +133,50 @@ public class JFrameAdminJugadores extends javax.swing.JFrame {
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         this.setVisible(false);
-        anteriorVentana.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
+    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
+        JFrameRegistrar registrar = new JFrameRegistrar(this, liga);
+        this.setVisible(false);
+        registrar.setVisible(true);
+    }//GEN-LAST:event_jButtonNuevoActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        anyadirJugadores();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+        if (jListJugadores.getSelectedValue()!=null) {
+            liga.setJugadorActual(jListJugadores.getSelectedValue());
+            JFrameEditJugador jugador = new JFrameEditJugador(this, liga);
+            this.setVisible(false);
+            jugador.setVisible(true);
+        } else {
+            System.out.println("Debes seleccionar un jugador");
+        }
+    }//GEN-LAST:event_jButtonModificarActionPerformed
+
+    public void anyadirJugadores(){
+        ArrayList<String> jugadores = liga.listaJugadores();
+        
+        if (jugadores.size()>0){
+            String [] lista = new String[jugadores.size()];
+            for(int i=0;i<jugadores.size();i++)
+                lista[i]=jugadores.get(i);
+            jListJugadores.setListData(lista);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAtras;
+    private javax.swing.JButton jButtonModificar;
+    private javax.swing.JButton jButtonNuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jListJugadores;
     private javax.swing.JScrollPane jScrollPane1;

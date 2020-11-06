@@ -252,6 +252,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
             if (liga.registrarJugador(nombre, contrasenya, fecha, club)) {
                 System.out.println("Insercion completada");
                 this.setVisible(false);
+                
                 frame.setVisible(true);
             } else {
                 System.out.println("Error: No se ha podido registrar al jugador");

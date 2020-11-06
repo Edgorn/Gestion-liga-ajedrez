@@ -39,7 +39,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Salir = new javax.swing.JButton();
         EtiquetaAdministrador = new javax.swing.JLabel();
-        botonJugadores = new javax.swing.JButton();
+        JButtonJugadores = new javax.swing.JButton();
         botonClubes = new javax.swing.JButton();
         botonTorneos = new javax.swing.JButton();
 
@@ -58,11 +58,11 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         EtiquetaAdministrador.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         EtiquetaAdministrador.setText("ADMINISTRADOR DEL SISTEMA");
 
-        botonJugadores.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        botonJugadores.setText("JUGADORES");
-        botonJugadores.addActionListener(new java.awt.event.ActionListener() {
+        JButtonJugadores.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        JButtonJugadores.setText("JUGADORES");
+        JButtonJugadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonJugadoresActionPerformed(evt);
+                JButtonJugadoresActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JButtonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
@@ -112,7 +112,7 @@ public class JFrameAdministrador extends javax.swing.JFrame {
                 .addComponent(EtiquetaAdministrador, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonClubes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(botonTorneos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,11 +129,11 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void botonJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugadoresActionPerformed
-        /*this.setVisible(false);
-        jugador = new JFrameAdminJugadores(this);
-        jugador.setVisible(true);*/
-    }//GEN-LAST:event_botonJugadoresActionPerformed
+    private void JButtonJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonJugadoresActionPerformed
+        this.setVisible(false);
+        JFrameAdminJugadores jugador = new JFrameAdminJugadores(this, liga);
+        jugador.setVisible(true);
+    }//GEN-LAST:event_JButtonJugadoresActionPerformed
 
     private void botonClubesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClubesActionPerformed
          /*this.setVisible(false);
@@ -151,9 +151,9 @@ public class JFrameAdministrador extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EtiquetaAdministrador;
+    private javax.swing.JButton JButtonJugadores;
     private javax.swing.JButton Salir;
     private javax.swing.JButton botonClubes;
-    private javax.swing.JButton botonJugadores;
     private javax.swing.JButton botonTorneos;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

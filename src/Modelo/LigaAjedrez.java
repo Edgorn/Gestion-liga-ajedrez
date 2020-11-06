@@ -93,6 +93,8 @@ public class LigaAjedrez {
                 if (respuesta.equals("Jugador")) {
                     jugadorActual = (Jugador)usuarios.get(i);
                 }
+            } else if (usuarios.get(i).getNombre().equals(n)) {
+                respuesta = "Contraseña Incorrecta";
             }
         }
         
@@ -117,11 +119,13 @@ public class LigaAjedrez {
                     if (anyo>(2020-16)) {
                         j.setResponsable(responsableActual);
                         responsableActual=null;
-                    }
-                    
-                    if (j.getResponsable()==null) {
-                        System.out.println("Debes registrar un responsable primero");
-                        j=null;
+                        if (j.getResponsable()==null) {
+                            System.out.println("Debes registrar un responsable primero");
+                            j=null;
+                        } else {
+                            usuarios.add(j);
+                            clubes.get(i).addJugador(j);
+                        }
                     } else {
                         usuarios.add(j);
                         clubes.get(i).addJugador(j);
@@ -177,6 +181,20 @@ public class LigaAjedrez {
         return lista;
     }
     
+    //FUNCION QUE DEVUELVE UNA LISTA CON TODOS LOS JUGADORES
+    public ArrayList<String> listaJugadores() {
+        
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<usuarios.size(); i++) {
+            if (usuarios.get(i).tipo().equals("Jugador")) {
+                lista.add(usuarios.get(i).getNombre());
+            }
+        }
+        
+        return lista;
+    }
+    
     //FUNCION QUE DEVUELVE UN CLUB PASANDOLE EL NOMBRE
     private Club clubPorNombre(String nombre) {
         Club c = null;
@@ -188,6 +206,16 @@ public class LigaAjedrez {
         }
         
         return c;
+    }
+    
+    //FUNCION PARA SELECCIONAR UN JUGADOR DADO EL NOMBRE DE ESTE
+    public void setJugadorActual(String n){
+        
+        for (int i=0; i<usuarios.size();i++) {
+            if (usuarios.get(i).esUsuario(n)) {
+                jugadorActual = (Jugador)usuarios.get(i);
+            }
+        }
     }
     
     //FUNCION PARA SELECCIONAR UN TORNEO DADO EL NOMBRE DE ESTE

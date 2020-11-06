@@ -77,7 +77,6 @@ public class Jugador extends Usuario{
         return lista;
     }
 
-    
     @Override
     public String tipo() {
         return "Jugador";
