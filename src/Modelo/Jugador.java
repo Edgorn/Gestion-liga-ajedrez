@@ -53,11 +53,11 @@ public class Jugador extends Usuario{
         return torneos;
     }
    
-    public boolean inscrito(String t) {
+    public boolean inscrito(Torneo t) {
         boolean respuesta = false;
         
         for (int i=0; i<torneos.size(); i++) {
-            if (torneos.get(i).esTorneo(t)) {
+            if (torneos.get(i).esTorneo(t.getNombre())) {
                 respuesta = true;
             }
         }
@@ -65,12 +65,12 @@ public class Jugador extends Usuario{
         return respuesta;
     }
     
-    public ArrayList<Partida> partidaTorneo(Torneo t) {
-        ArrayList <Partida> lista = new ArrayList<Partida>();
+    public ArrayList<String> partidaTorneo(Torneo t) {
+        ArrayList <String> lista = new ArrayList<String>();
         
         for (int i=0; i<partidas.size(); i++) {
             if (partidas.get(i).partidaTorneo(t)) {
-                lista.add(partidas.get(i));
+                lista.add(partidas.get(i).nombrePartida());
             }
         }
         

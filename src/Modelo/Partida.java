@@ -12,7 +12,7 @@ package Modelo;
 public class Partida {
     Jugador j_local,j_visitante;
     String sede, fecha, nombre;
-    String duracion;        //en minutos
+    String duracion;        //en segundos
     Torneo torneo;
     
     public Partida(){

@@ -106,6 +106,7 @@ public class JFrameJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        liga.salirJugador();
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_jButtonSalirActionPerformed

@@ -91,7 +91,7 @@ public class LigaAjedrez {
             if (usuarios.get(i).login(n, c)) {
                 respuesta = usuarios.get(i).tipo();
                 if (respuesta.equals("Jugador")) {
-                    jugadorActual = (Jugador) usuarios.get(i);
+                    jugadorActual = (Jugador)usuarios.get(i);
                 }
             }
         }
@@ -157,27 +157,13 @@ public class LigaAjedrez {
     
     //FUNCION PARA DEVOLVER UN LISTA CON TODOS LOS PARTIDOS DEL JUGADOR ACTUAL
     public ArrayList<String> listaPartidasJugador(){
-        ArrayList<Partida> lista_partidas = jugadorActual.partidaTorneo(torneoActual);
-        ArrayList<String> lista = new ArrayList<String>();
-        for(int i = 0; i < lista_partidas.size(); i++){
-            lista.add(lista_partidas.get(i).nombrePartida());
-        }
-        
-        return lista;
+        return jugadorActual.partidaTorneo(torneoActual);
     }
     
     //FUNCION PARA DEVOLVER UN LISTA CON TODOS LOS PARTIDOS DE UN TORNEO
     public ArrayList<String> listaPartidasTorneo(){
-        ArrayList<Partida> lista_partidas = torneoActual.getPartidas();
-        ArrayList<String> lista = new ArrayList<String>();
-        for(int i = 0; i < lista_partidas.size(); i++){
-            lista.add(lista_partidas.get(i).nombrePartida());
-        }
-        
-        return lista;
+        return torneoActual.getNombrePartidas();
     }
-    
-    
     
     //FUNCION QUE DEVUELVE UNA LISTA CON TODOS LOS TORNEOS
     public ArrayList<String> listaTorneos() {
@@ -192,7 +178,7 @@ public class LigaAjedrez {
     }
     
     //FUNCION QUE DEVUELVE UN CLUB PASANDOLE EL NOMBRE
-    public Club clubPorNombre(String nombre) {
+    private Club clubPorNombre(String nombre) {
         Club c = null;
         
         for (int i=0; i<clubes.size();i++) {
@@ -214,7 +200,7 @@ public class LigaAjedrez {
         }
     }
     
-    //FUNCION PARA SELECCIONAR UNA PARTIDA DADO EL NOMBRE DE ESTE
+    //FUNCION PARA SELECCIONAR UNA PARTIDA DADO EL NOMBRE DE ESTA
     public void setPartidaActual(String p){
         
         for (int i=0; i<torneoActual.getPartidas().size();i++) {
@@ -226,7 +212,7 @@ public class LigaAjedrez {
     
     //FUNCION PARA SABER SI UN JUGADOR ESTA INSCRITO EN UN TORNEO
     public boolean inscrito() {
-        return jugadorActual.inscrito(torneoActual.getNombre());
+        return jugadorActual.inscrito(torneoActual);
     }
     
     //FUNCION PARA INSCRIBIR UN JUGADOR EN UN TORNEO
@@ -248,5 +234,9 @@ public class LigaAjedrez {
         jugadorActual.getClub().quitarJugador(jugadorActual);
         jugadorActual.setClub(clubPorNombre(club));
         clubPorNombre(club).addJugador(jugadorActual);
+    }
+    
+    public void salirJugador() {
+        jugadorActual = null;
     }
 }

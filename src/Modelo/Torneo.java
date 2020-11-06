@@ -43,6 +43,17 @@ public class Torneo {
         return this.partidas;
     }
     
+    public ArrayList<String> getNombrePartidas(){
+        ArrayList <String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<partidas.size(); i++) {
+            lista.add(partidas.get(i).nombrePartida());
+        }
+        
+        return lista;
+        //return this.partidas;
+    }
+    
     public String getNombre() {
         return nombre;
     }
