@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class JFrameEditJugador extends javax.swing.JFrame {
     
-    JFrame jugador;
+    JFrame frame;
     LigaAjedrez liga;
     JComboBox clubesBox;
     
@@ -25,10 +25,10 @@ public class JFrameEditJugador extends javax.swing.JFrame {
      * Creates new form JFrameEditJugador
      */
     public JFrameEditJugador(JFrame j, LigaAjedrez la) {
-        jugador = j;
-        initComponents();
+        frame = j;
         liga = la;
-        textoClub.setText(liga.getClub());
+        initComponents();
+        llenarDatos();
        
     }
 
@@ -42,55 +42,61 @@ public class JFrameEditJugador extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelNom = new javax.swing.JLabel();
-        jTextFieldNom = new javax.swing.JTextField();
+        jTextFieldNombre = new javax.swing.JTextField();
         jLabelClub = new javax.swing.JLabel();
         jButtonAtras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButtonRegistrar = new javax.swing.JButton();
         jLabelFecha = new javax.swing.JLabel();
         jTextFieldFecha = new javax.swing.JTextField();
         jButtonResponsable = new javax.swing.JButton();
         textoClub = new javax.swing.JTextField();
         cambiarClub = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextFieldCategoria = new javax.swing.JTextField();
+        jTextFieldElo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListClubes = new javax.swing.JList<>();
+        jTextFieldContrasenya = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Modificar datos de jugador");
 
+        jLabelNom.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelNom.setText("Nombre:");
 
-        jTextFieldNom.setText("Pepe");
-        jTextFieldNom.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jTextFieldNombre.setEnabled(false);
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomActionPerformed(evt);
+                jTextFieldNombreActionPerformed(evt);
             }
         });
 
+        jLabelClub.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelClub.setText("Club:");
 
-        jButtonAtras.setText("Atrás");
+        jButtonAtras.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButtonAtras.setText("ATRAS");
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtrasActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Contraseña:");
 
-        jPasswordField1.setText("jPasswordField1");
-
-        jButtonRegistrar.setText("Guardar");
-        jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarActionPerformed(evt);
-            }
-        });
-
+        jLabelFecha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelFecha.setText("Fecha de nacimiento:");
 
+        jTextFieldFecha.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jTextFieldFecha.setText("dd/mm/YY");
         jTextFieldFecha.setEnabled(false);
 
+        jButtonResponsable.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonResponsable.setText("Responsable");
         jButtonResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +104,7 @@ public class JFrameEditJugador extends javax.swing.JFrame {
             }
         });
 
+        textoClub.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         textoClub.setEnabled(false);
         textoClub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +112,7 @@ public class JFrameEditJugador extends javax.swing.JFrame {
             }
         });
 
+        cambiarClub.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cambiarClub.setText("Cambiar Club");
         cambiarClub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,73 +120,103 @@ public class JFrameEditJugador extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton1.setText("Cambiar Contraseña");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setText("ELO:");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setText("Categoria:");
+
+        jTextFieldCategoria.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextFieldCategoria.setEnabled(false);
+
+        jTextFieldElo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextFieldElo.setEnabled(false);
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setText("CLUBES HISTORICO");
+
+        jListClubes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jScrollPane1.setViewportView(jListClubes);
+
+        jTextFieldContrasenya.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jTextFieldContrasenya.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAtras)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 301, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAtras))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabelNom)
-                                    .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabelNom)
+                            .addComponent(jLabelClub)
+                            .addComponent(jLabelFecha)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldElo)
+                                    .addComponent(jTextFieldCategoria)
+                                    .addComponent(textoClub)
+                                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldContrasenya))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabelClub)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(cambiarClub, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(textoClub)))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButtonResponsable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabelFecha)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(30, 30, 30))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cambiarClub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonResponsable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNom)
-                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelClub)
-                            .addComponent(textoClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelFecha)
+                    .addComponent(jLabelNom)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jTextFieldContrasenya, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoClub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelClub)
                     .addComponent(cambiarClub))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonResponsable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAtras)
-                    .addComponent(jButtonRegistrar))
-                .addContainerGap())
+                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFecha))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonResponsable)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldElo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(36, 36, 36)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButtonAtras)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -186,16 +224,12 @@ public class JFrameEditJugador extends javax.swing.JFrame {
 
     private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
         this.setVisible(false);
-        jugador.setVisible(true);
+        frame.setVisible(true);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
-
-    private void jTextFieldNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jButtonResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResponsableActionPerformed
         /*JFrameRegistrarResponsable responsable = new JFrameRegistrarResponsable(this);
@@ -204,37 +238,59 @@ public class JFrameEditJugador extends javax.swing.JFrame {
 
 
     private void cambiarClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarClubActionPerformed
-        
-       String selector = (String)JOptionPane.showInputDialog(this, "Selecciona el nuevo club","Cambiar club jugador", JOptionPane.QUESTION_MESSAGE, null, liga.listaClubes().toArray(),"Selecciona club: ");
+        String selector = (String)JOptionPane.showInputDialog(this, "Selecciona el nuevo club","Cambiar club jugador", JOptionPane.QUESTION_MESSAGE, null, liga.listaClubes().toArray(),"Selecciona club: ");
        
-       if(selector!=null)
-       {
-            liga.cambiarClub(selector);
-            textoClub.setText(liga.getClub());
-       }
-        
+        if(selector!=null) {
+            float cuota = liga.cambiarClub(selector);
+            JOptionPane.showMessageDialog(this, "La cuota mensual que debe pagar ahora es de "+cuota);
+            llenarDatos();
+        }
     }//GEN-LAST:event_cambiarClubActionPerformed
 
     private void textoClubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoClubActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoClubActionPerformed
 
-    public void setClubJugador(String setClub)
-    {
-        textoClub.setText(setClub);
+    private void llenarDatos() {
+        String [] datos = liga.datosJugador().split("-");
+        jTextFieldNombre.setText(datos[0]);
+        jTextFieldContrasenya.setText(datos[1]);
+        textoClub.setText(datos[2]);
+        jTextFieldFecha.setText(datos[3]);
+        
+        anyadirTorneos();
     }
+    
+    private void anyadirTorneos(){
+        ArrayList<String> clubes = liga.listaClubesHistorico();
+        
+        if (clubes.size()>0){
+            String [] lista = new String[clubes.size()];
+            for(int i=0;i<clubes.size();i++)
+                lista[i]=clubes.get(i);
+            jListClubes.setListData(lista);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cambiarClub;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAtras;
-    private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonResponsable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelClub;
     private javax.swing.JLabel jLabelFecha;
     private javax.swing.JLabel jLabelNom;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JList<String> jListClubes;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldCategoria;
+    private javax.swing.JTextField jTextFieldContrasenya;
+    private javax.swing.JTextField jTextFieldElo;
     private javax.swing.JTextField jTextFieldFecha;
-    private javax.swing.JTextField jTextFieldNom;
+    private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField textoClub;
     // End of variables declaration//GEN-END:variables
 }

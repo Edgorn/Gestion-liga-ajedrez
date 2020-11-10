@@ -25,7 +25,6 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
         initComponents();
         frame = f;
         liga = l;
-        anyadirPartidas();
     }
 
     /**
@@ -39,19 +38,29 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jListPartidas = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        jButtonNuevo = new javax.swing.JButton();
         botonModificar = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jListPartidas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jListPartidas);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("NUEVO");
+        jButtonNuevo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonNuevo.setText("NUEVO");
+        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoActionPerformed(evt);
+            }
+        });
 
         botonModificar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         botonModificar.setText("MODIFICAR");
@@ -61,8 +70,13 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton5.setText("ELIMINAR");
+        jButtonEliminar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonEliminar.setText("ELIMINAR");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("PARTIDAS");
@@ -88,11 +102,11 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonModificar)
                                 .addGap(48, 48, 48)
-                                .addComponent(jButton5))
+                                .addComponent(jButtonEliminar))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -109,9 +123,9 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -126,29 +140,46 @@ public class JFrameEditTorneos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
     private void botonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarActionPerformed
-        liga.setPartidaActual(jListPartidas.getSelectedValue());
-        
+        if (jListPartidas.getSelectedValue() != null) {
+            liga.setPartidaActual(jListPartidas.getSelectedValue());
+            JFramePartidas partida = new JFramePartidas(this, liga);
+            this.setVisible(false);
+            partida.setVisible(true);
+        }
+    }//GEN-LAST:event_botonModificarActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        anyadirPartidas();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
         JFramePartidas partida = new JFramePartidas(this, liga);
         this.setVisible(false);
         partida.setVisible(true);
-    }//GEN-LAST:event_botonModificarActionPerformed
+    }//GEN-LAST:event_jButtonNuevoActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        if (jListPartidas.getSelectedValue() != null) {
+            liga.eliminarPartida(jListPartidas.getSelectedValue());
+            anyadirPartidas();
+        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void anyadirPartidas(){
         ArrayList<String> partidas = liga.listaPartidasTorneo();
+        String [] lista = new String[partidas.size()];
+        jListPartidas.setListData(lista);
         
-        if (partidas.size()>0){
-            String [] lista = new String[partidas.size()];
-            for(int i=0;i<partidas.size();i++)
-                lista[i]=partidas.get(i);
-            jListPartidas.setListData(lista);
-        }
+        for(int i=0;i<partidas.size();i++)
+            lista[i]=partidas.get(i);
+        jListPartidas.setListData(lista);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonModificar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAtras;
+    private javax.swing.JButton jButtonEliminar;
+    private javax.swing.JButton jButtonNuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jListPartidas;
     private javax.swing.JScrollPane jScrollPane1;

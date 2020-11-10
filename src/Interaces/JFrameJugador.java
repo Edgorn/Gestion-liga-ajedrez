@@ -58,16 +58,18 @@ public class JFrameJugador extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuBar2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        jMenuModificar.setText("Modificar");
+        jMenuModificar.setText("Datos");
+        jMenuModificar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jMenuModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuModificarActionPerformed(evt);
             }
         });
 
-        jMenuItemJugador.setText("Modificar datos del jugador");
+        jMenuItemJugador.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMenuItemJugador.setText("Ver perfil");
         jMenuItemJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemJugadorActionPerformed(evt);
@@ -97,7 +99,7 @@ public class JFrameJugador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jButtonTorneo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -122,21 +124,16 @@ public class JFrameJugador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonTorneoActionPerformed
 
+    private void jMenuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarActionPerformed
+
+    }//GEN-LAST:event_jMenuModificarActionPerformed
+
     private void jMenuItemJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemJugadorActionPerformed
         JFrameEditJugador edit = new JFrameEditJugador(this, liga);
         edit.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItemJugadorActionPerformed
 
-    private void jMenuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuModificarActionPerformed
-        
-    }//GEN-LAST:event_jMenuModificarActionPerformed
-
-
-    public void setClubJugador(String setClub)
-    {
-        jugador.setClubJugador(setClub);
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonTorneo;

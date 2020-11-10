@@ -14,23 +14,35 @@ import java.util.Date;
  */
 public class Jugador extends Usuario{
 
-    Date nacimiento;
+    String nacimiento;
     Club club;
     ArrayList<Torneo> torneos;
     ArrayList<Partida> partidas;
+    ArrayList<Club> clubes;
     Responsable responsable;
+    
 
     public Jugador() {
         torneos = new ArrayList<Torneo>();
         partidas = new ArrayList<Partida>();
+        clubes = new ArrayList<Club>();
     }
 
-    public void setNacimiento(Date nacimiento) {
+    public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
+    }
+    
+    public String getNacimiento() {
+        return this.nacimiento;
     }
 
     public void setClub(Club club) {
-        this.club = club;
+        if (club == null) {
+            this.club = club;
+        } else if (club != this.club) {
+            this.club = club;
+            clubes.add(club);
+        }
     }
     
     public void addTorneo(Torneo torneo) {
@@ -39,6 +51,10 @@ public class Jugador extends Usuario{
     
     public void addPartida(Partida partida) {
         partidas.add(partida);
+    }
+    
+    public void eliminarPartida(Partida partida) {
+        partidas.remove(partida);
     }
     
     public void setResponsable(Responsable r) {
@@ -84,5 +100,9 @@ public class Jugador extends Usuario{
     
     public Club getClub() {
         return club;
+    }
+    
+    public ArrayList<Club> historicoClubes() {
+        return clubes;
     }
 }

@@ -15,6 +15,9 @@ public class Club {
     private String nombre;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Torneo> torneos;
+    private float cuota;
+    private String sede;
+    private Gerente gerente;
 
     public Club() {
         jugadores = new ArrayList<Jugador>();
@@ -57,5 +60,43 @@ public class Club {
         }
         
         return respuesta;
+    }
+
+    public float getCuota() {
+        return cuota;
+    }
+
+    public void setCuota(float cuota) {
+        this.cuota = cuota;
+    }
+
+    public String getSede() {
+        return sede;
+    }
+
+    public void setSede(String sede) {
+        this.sede = sede;
+    }
+    
+    public void eliminarJugadores() {
+        for(int i=0; i<jugadores.size();i++)
+        {
+            jugadores.get(i).setClub(null);
+        }
+    }
+    
+    public void salirTorneos() {
+        for(int i=0; i<torneos.size();i++)
+        {
+            torneos.get(i).eliminarClub(this);
+        }
+    }
+
+    public Gerente getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(Gerente gerente) {
+        this.gerente = gerente;
     }
 }

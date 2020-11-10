@@ -51,7 +51,6 @@ public class Torneo {
         }
         
         return lista;
-        //return this.partidas;
     }
     
     public String getNombre() {
@@ -68,5 +67,33 @@ public class Torneo {
         }
         
         return respuesta;
+    }
+    
+    public ArrayList<String> getNombreJugadores(){
+        ArrayList <String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<jugadores.size(); i++) {
+            lista.add(jugadores.get(i).getNombre());
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<String> getSedes() {
+        ArrayList <String> lista = new ArrayList<String>();
+        
+        for (int i=0; i<clubes.size(); i++) {
+            lista.add(clubes.get(i).getSede());
+        }
+        
+        return lista;
+    }
+    
+    public void eliminarPartida(Partida partida) {
+        partidas.remove(partida);
+    }
+    
+    public void eliminarClub(Club club) {
+        clubes.remove(club);
     }
 }

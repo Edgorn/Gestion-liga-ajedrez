@@ -7,16 +7,20 @@ package Modelo;
 
 /**
  *
- * @author vicen
+ * @author vicent
  */
 public class Partida {
-    Jugador j_local,j_visitante;
-    String sede, fecha, nombre;
-    String duracion;        //en segundos
+    static int contador = 0;
+    private int id;
+    Jugador j_local, j_visitante;
+    String sede, fecha, ganador;
+    int duracion;        //en segundos
     Torneo torneo;
     
     public Partida(){
-        
+        duracion = 0;
+        id = contador;
+        contador++;
     }
     
     public String getSede() {
@@ -27,12 +31,12 @@ public class Partida {
         return fecha;
     }
 
-    public String getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
     public String nombrePartida() {
-       return j_local.getNombre()+"-"+j_visitante.getNombre();
+       return id+" - "+j_local.getNombre()+" - "+j_visitante.getNombre();
     }
     
     public void setJ_local(Jugador j_local) {
@@ -55,7 +59,7 @@ public class Partida {
         this.fecha = fecha;
     }
 
-    public void setDuracion(String duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
@@ -73,7 +77,7 @@ public class Partida {
     public boolean esPartida(String t) {
         boolean respuesta;
         
-        if(nombrePartida() == t)
+        if(nombrePartida().equals(t))
             respuesta = true;
         else
             respuesta = false;
@@ -81,5 +85,24 @@ public class Partida {
         return respuesta;
         
     }
-    
+
+    public Jugador getJ_local() {
+        return j_local;
+    }
+
+    public Jugador getJ_visitante() {
+        return j_visitante;
+    }
+
+    public String getGanador() {
+        return ganador;
+    }
+
+    public void setGanador(int g) {
+        if (g==1) {
+            this.ganador = "local";
+        } else if (g==2) {
+            this.ganador = "visitante";
+        }
+    }
 }

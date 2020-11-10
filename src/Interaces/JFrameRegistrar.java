@@ -25,7 +25,7 @@ public class JFrameRegistrar extends javax.swing.JFrame {
     JFrame frame;
     LigaAjedrez liga;
     int anyo = 2020;
-    JFrameJugador editarJugador;
+    
     public JFrameRegistrar(JFrame l, LigaAjedrez la) {
         initComponents();
         frame = l;
@@ -243,9 +243,9 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         String contrasenya = jTextFieldCon.getText();
         String contrasenyaRepetida = jTextFieldCon2.getText();
         int dia = jComboBoxDia.getSelectedIndex()+1;
-        int mes = jComboBoxMes.getSelectedIndex();
+        int mes = jComboBoxMes.getSelectedIndex()+1;
         int any = Integer.parseInt(jComboBoxAnyo.getSelectedItem()+"");
-        Date fecha = new Date(any, mes, dia);
+        String fecha = dia+"/"+mes+"/"+any;
         String club = clubComboBox.getSelectedItem()+"";
         
         if (contrasenya.equals(contrasenyaRepetida)) {
@@ -260,10 +260,6 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         } else {
             System.out.println("Error: Las contraseñas no coinciden");
         }
-        
-        
-        
-        
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
@@ -370,12 +366,6 @@ public class JFrameRegistrar extends javax.swing.JFrame {
         for (int i=0; i<clubes.size(); i++) {
             clubComboBox.addItem(clubes.get(i));
         }
-    }
-    
-    public void setClubJugador()
-    {
-        String setClub = clubComboBox.getSelectedItem().toString();
-        editarJugador.setClubJugador(setClub);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
