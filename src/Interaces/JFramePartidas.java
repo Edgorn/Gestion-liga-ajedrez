@@ -298,8 +298,10 @@ public class JFramePartidas extends javax.swing.JFrame {
         
         if (local.equals(jComboBoxGanador.getSelectedItem()+"")) {
             ganador = 1;
-        } else {
+        } else if (visitante.equals(jComboBoxGanador.getSelectedItem()+"")) {
             ganador = 2;
+        } else {
+            ganador = 0;
         }
         
         int dia = jComboBoxDia.getSelectedIndex()+1;
@@ -342,8 +344,6 @@ public class JFramePartidas extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     public void llenarDatos() {
-        
-        
         String[] datos = liga.datosPartida().split("-");
         String[] fecha = datos[3].split("/");
         int duracion = Integer.parseInt(datos[4]);
@@ -363,12 +363,15 @@ public class JFramePartidas extends javax.swing.JFrame {
             jComboBoxGanador.setSelectedItem(datos[0]);
         } else if (datos[2].equals("visitante")) {
             jComboBoxGanador.setSelectedItem(datos[1]);
+        } else {
+            jComboBoxGanador.setSelectedItem("NADIE");
         }
     }
     
     public void llenarGanador() {
         jComboBoxGanador.removeAllItems();
         
+        jComboBoxGanador.addItem("NADIE");
         jComboBoxGanador.addItem(jComboBoxLocal.getSelectedItem()+"");
         jComboBoxGanador.addItem(jComboBoxVisitante.getSelectedItem()+"");
     }

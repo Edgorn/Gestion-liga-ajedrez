@@ -85,6 +85,11 @@ public class JFrameAdministrador extends javax.swing.JFrame {
 
         jButtonGerentes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButtonGerentes.setText("GERENTES");
+        jButtonGerentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGerentesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,6 +156,12 @@ public class JFrameAdministrador extends javax.swing.JFrame {
         this.setVisible(false);
         torneos.setVisible(true);
     }//GEN-LAST:event_botonTorneosActionPerformed
+
+    private void jButtonGerentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGerentesActionPerformed
+        JFrameAdminGerentes gerentes = new JFrameAdminGerentes(this, liga);
+        this.setVisible(false);
+        gerentes.setVisible(true);
+    }//GEN-LAST:event_jButtonGerentesActionPerformed
 
 
     

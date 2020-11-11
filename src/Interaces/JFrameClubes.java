@@ -177,7 +177,8 @@ public class JFrameClubes extends javax.swing.JFrame {
         jTextFieldNombre.setText(datos[0]);
         jTextFieldCuota.setText(datos[1]);
         jTextFieldSede.setText(datos[2]);
-        jComboBoxGerentes.setSelectedItem(datos[3]);
+        
+        jComboBoxGerentes.setSelectedIndex(0);
     }
     
     private void llenarGerentes() {

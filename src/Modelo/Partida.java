@@ -103,6 +103,8 @@ public class Partida {
             this.ganador = "local";
         } else if (g==2) {
             this.ganador = "visitante";
+        } else {
+            ganador = "NADIE";
         }
     }
 }

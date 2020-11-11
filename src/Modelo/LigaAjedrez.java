@@ -58,12 +58,18 @@ public class LigaAjedrez {
         
         Gerente g1 = new Gerente();
         g1.setNombre("ElPepe");
+        g1.setNomina(1500);
+        g1.setIrpf(5);
         
         Gerente g2 = new Gerente();
         g2.setNombre("Jopepe");
+        g2.setNomina(3000);
+        g2.setIrpf(15);
         
         Gerente g3 = new Gerente();
         g3.setNombre("Pipape");
+        g3.setNomina(4500);
+        g3.setIrpf(20);
         
         gerentes.add(g1);
         gerentes.add(g2);
@@ -239,14 +245,17 @@ public class LigaAjedrez {
         ArrayList<String> lista = new ArrayList<String>();
         
         if (clubActual!=null) {
-            lista.add(clubActual.getGerente().getNombre());
+            if (clubActual.getGerente()!=null) {
+                lista.add(clubActual.getGerente().getNombre());
+            } else {
+                lista.add("NADIE");
+            }
         }
         
         for (int i=0; i<gerentes.size(); i++) {
             if (gerentes.get(i).libre()) {
                 lista.add(gerentes.get(i).getNombre());
             }
-            
         }
         
         return lista;
@@ -282,6 +291,25 @@ public class LigaAjedrez {
     //FUNCION QUE DEVUELVE UNA LISTA CON TODOS LOS JUGADORES
     public ArrayList<String> listaSedesTorneo() {
         return torneoActual.getSedes();
+    }
+    
+    public ArrayList<String> listaClubesGerente() {
+        ArrayList <Club> c = gerenteActual.getHistoricoClubes();
+        ArrayList salida = new ArrayList();
+        
+        for (int i=0; i<c.size(); i++) {
+            salida.add(c.get(i).getNombre());
+        }
+        
+        return salida;
+    }
+    
+    public ArrayList<Float> listaNominasGerente() {
+        return gerenteActual.getHistoricoNominas();
+    }
+    
+    public ArrayList<Float> listaIrpfGerente() {
+        return gerenteActual.getHistoricoIrpf();
     }
     
     
@@ -335,6 +363,14 @@ public class LigaAjedrez {
         }
     }
     
+    public void setGerenteActual(String g){
+        for (int i=0; i<gerentes.size();i++) {
+            if (gerentes.get(i).esGerente(g)) {
+                gerenteActual = gerentes.get(i);
+            }
+        }
+    }
+    
     //FUNCION PARA SABER SI UN JUGADOR ESTA INSCRITO EN UN TORNEO
     public boolean inscrito() {
         return jugadorActual.inscrito(torneoActual);
@@ -370,6 +406,10 @@ public class LigaAjedrez {
         clubActual = null;
     }
     
+    public void salirGerente() {
+        gerenteActual = null;
+    }
+    
     public String datosPartida() {
         String local = partidaActual.getJ_local().getNombre();
         String visitante = partidaActual.getJ_visitante().getNombre();
@@ -385,9 +425,8 @@ public class LigaAjedrez {
         String nombre = clubActual.getNombre();
         String cuota = clubActual.getCuota()+"";
         String sede = clubActual.getSede();
-        String gerente = clubActual.getGerente().getNombre();
         
-        return nombre+"-"+cuota+"-"+sede+"-"+gerente;
+        return nombre+"-"+cuota+"-"+sede;
     }
     
     public String datosJugador() {
@@ -398,12 +437,27 @@ public class LigaAjedrez {
         if (jugadorActual.getClub()!=null) {
             club = jugadorActual.getClub().getNombre();
         } else {
-            club = "";
+            club = " ";
         }
         
         String fecha = jugadorActual.getNacimiento();
         
         return nombre+"-"+contrasena+"-"+club+"-"+fecha;
+    }
+    
+    public String datosGerente() {
+        String nombre = gerenteActual.getNombre();
+        String nomina = gerenteActual.getNomina()+"";
+        String irpf = gerenteActual.getIrpf()+"";
+        String club;
+        
+        if (gerenteActual.getClub() == null) {
+            club = "LIBRE";
+        } else {
+            club = gerenteActual.getClub().getNombre();
+        }
+        
+        return nombre+"-"+nomina+"-"+irpf+"-"+club;
     }
     
     public boolean esAdmin() {
@@ -446,7 +500,10 @@ public class LigaAjedrez {
         clubActual.setCuota(Float.parseFloat(datos[1]));
         clubActual.setSede(datos[2]);
         
-        clubActual.getGerente().setClub(null);
+        if (clubActual.getGerente()!=null) {
+            clubActual.getGerente().setClub(null);
+            clubActual.setGerente(null);
+        }
         
         for (int i=0; i<gerentes.size(); i++) {
             if (gerentes.get(i).getNombre().equals(datos[3])) {
@@ -456,6 +513,16 @@ public class LigaAjedrez {
         }
         
         salirClub();
+    }
+    
+    public void cambiarDatosGerente(String d) {
+        String[] datos = d.split("-");
+        
+        gerenteActual.setNombre(datos[0]);
+        gerenteActual.setNomina(Float.parseFloat(datos[1]));
+        gerenteActual.setIrpf(Float.parseFloat(datos[2]));
+        
+        salirGerente();
     }
     
     public boolean hayPartida() {
@@ -474,6 +541,18 @@ public class LigaAjedrez {
         boolean respuesta;
         
         if (clubActual==null) {
+            respuesta = false;
+        } else {
+            respuesta = true;
+        }
+        
+        return respuesta;
+    }
+    
+    public boolean hayGerente() {
+        boolean respuesta;
+        
+        if (gerenteActual==null) {
             respuesta = false;
         } else {
             respuesta = true;
@@ -522,6 +601,18 @@ public class LigaAjedrez {
         salirClub();
     }
     
+    public void nuevoGerente(String d) {
+        String[] datos = d.split("-");
+        gerenteActual = new Gerente();
+        
+        gerenteActual.setNombre(datos[0]);
+        gerenteActual.setNomina(Float.parseFloat(datos[1]));
+        gerenteActual.setIrpf(Float.parseFloat(datos[2]));
+        
+        gerentes.add(gerenteActual);
+        salirGerente();
+    }
+    
     public void eliminarPartida(String partida) {
         setPartidaActual(partida);
         
@@ -539,5 +630,13 @@ public class LigaAjedrez {
         clubes.remove(clubActual);
         
         salirClub();
+    }
+    
+    public void eliminarGerente(String gerente) {
+        setGerenteActual(gerente);
+        gerenteActual.getClub().setGerente(null);
+        gerentes.remove(gerenteActual);
+        
+        salirGerente();
     }
 }
