@@ -5,6 +5,9 @@
  */
 package Modelo;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -639,4 +642,39 @@ public class LigaAjedrez {
         
         salirGerente();
     }
+    
+    private boolean leerDatos(String fich) {
+        boolean leido = false;
+        
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        
+        try {
+            archivo = new File (fich);
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+            
+            String linea;
+            while((linea = br.readLine())!= null){
+                
+                
+                
+                }
+            
+        }
+        catch(Exception e){
+                e.printStackTrace();
+        }finally{
+            try{
+                if(fr!=null)
+                    fr.close();
+            }
+            catch(Exception e){
+                e.printStackTrace();
+        }
+        
+        return leido;
+    }
+}
 }
